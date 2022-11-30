@@ -14,16 +14,15 @@ session_start();
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-    <h1>Register</h1>
 
     <main class="content">
-        <section>
-            <form method="POST">
+        <section class="w-[500px] h-auto text-lg divabsolute text-center">
+            <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
 
-                <input type="email" name="email" placeholder="email" required>
-                <input type="password" name="password1" placeholder="password" required>
-                <input type="password" name="password2" placeholder="retype password" required>
-                <input type="text" name="pseudo" placeholder="pseudo" required>
+                <input type="email" name="email" placeholder="email" required class="rounded-lg p-2">
+                <input type="password" name="password1" placeholder="password" required class="rounded-lg p-2 text-black">
+                <input type="password" name="password2" placeholder="retype password" required class="rounded-lg p-2 text-black">
+                <input type="text" name="pseudo" placeholder="pseudo" required class="rounded-lg p-2 text-black">
 
                 <input type="submit" value="Register">
             </form>
