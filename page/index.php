@@ -21,7 +21,7 @@
             </div>
         </nav>
 
-        <ul class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-4 bg-black add w-full absolute invisible">
+        <ul class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-4 bg-neutral-900 add w-full absolute invisible">
             <li>Action</li>
             <li>Comédie</li>
             <li>Documentaires</li>
@@ -51,9 +51,11 @@
             </div>
         </div>
 
-        <h2 class="text-center text-2xl pt-6">Most Popular</h2>
+        <h2 class="text-2xl pt-6 pb-0 px-40">Most Popular</h2>
 
-        <div class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-10">
+        <hr class="h-1 border-none bg-gray-700 mx-40 mt-6">
+
+        <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10">
             <div class="bg-orange-500 rounded-3xl">
                 <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
                 <h2 class="p-2 text-xl">Title</h2>
@@ -98,12 +100,14 @@
             
         </div>
 
+        <h2 class="text-2xl pb-6 pt-0 px-40">See all moovies ></h2>
+
     </main>
 
     <footer>
         <div>
-            <hr class="h-px border-none bg-gray-700 mx-10">
-            <div class="my-6 mx-10 flex justify-between">
+            <hr class="h-px border-none bg-gray-700 mx-40">
+            <div class="my-6 mx-40 flex justify-between">
                 <p>© - Théa Blachon / Julien Grenouilleau</p>
                 <a href="https://github.com/DragiboO/devlab-back-end" class="hover:text-orange-500">Github</a>
             </div>
