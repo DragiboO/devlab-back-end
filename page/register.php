@@ -52,24 +52,9 @@ session_start();
                     echo '<h3 class="success">Registered with success 😎</h3>';
                     echo '<p class="timer"></p>';
 
-                    header('refresh:3;url=login.php');
+                    header('refresh:5;url=login.php');
 
-                    echo '<script type="text/javascript">',
-                    "let timer = document.querySelector('.timer')
-                    
-                    function sleep(ms) {
-                        return new Promise(resolve => setTimeout(resolve, ms));
-                    }
-
-                    async function time() {
-                        for (let i = 3; i > 0; i--) {
-                            timer.innerHTML = 'Redirect to logIn page in ' + i + ' ...'
-                            await sleep(1000)
-                        }
-                    }
-                    
-                    time()",
-                    '</script>';
+                    echo '<script src="../assets/register.js"></script>';
                 } else {
                     echo '<h3 class="error">Internal error...</h3>';
                 }

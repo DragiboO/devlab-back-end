@@ -1,6 +1,7 @@
 <?php
 
 require_once 'user.php';
+require_once 'config.php';
 
 class Connection
 {
@@ -8,7 +9,7 @@ class Connection
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:dbname=devlab-back-end;host=127.0.0.1', 'root', '');
+        $this->pdo = new PDO(DB_DSN, DB_USER, DB_PASS);
     }
 
     public function insert(User $user): bool
