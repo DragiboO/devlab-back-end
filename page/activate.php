@@ -8,4 +8,4 @@
     $connection = new Connection();
     $connection->validate($email,$token);
 
-    header('url=login.php');
+    header('Location: login.php');
