@@ -54,7 +54,7 @@ session_start();
                     echo '<h3 class="success">Registered with success 😎</h3>';
                     echo '<p class="timer"></p>';
 
-                    $message = "Hi $user->pseudo! Account created here is the activation link http://devlab-back-end.test/page/activate.php?token=$user->token";
+                    $message = "Hi $user->pseudo! Account created here is the activation link http://devlab-back-end.test/page/activate.php?email=$user->email&token=$user->token";
 
                     mail($user->email, 'Activate Account' , $message , 'From: test.devlab@gmail.com');
 
