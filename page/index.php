@@ -9,50 +9,107 @@
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-    <nav class="flex justify-between p-6 text-lg">
-        <div class="flex items-center gap-x-10">
-            <img src="../assets/image/crunchyroule.png" alt="logo" class="w-12">
-            <h2>Naviguer</h2>
-        </div>
-        <div class="flex items-center gap-x-10">
-            <img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10">
-            <h2>Se connecter / s'inscrire</h2>
-        </div>
-    </nav>
+    <div>
+        <nav class="flex justify-between py-6 px-10 text-lg relative">
+            <div class="flex items-center gap-x-10">
+                <img src="../assets/image/crunchyroule.png" alt="logo" class="w-12">
+                <button class="hover">Naviguer</button>
+            </div>
+            <div class="flex items-center gap-x-10">
+                <img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10">
+                <h2>Se connecter / s'inscrire</h2>
+            </div>
+        </nav>
 
-    <div class="background-moovie flex flex-col justify-end items-center">
-        <div></div>
-        <div></div>
-        <div class="flex flex-col gap-y-2 text-center text-2xl">
-            <h2>Arknights</h2>
-            <button class="bg-orange-500 p-1.5 rounded">Lecture</button>
-            <button class="bg-orange-500 p-1.5 rounded">Plus d'info</button>
-        </div>
+        <ul class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-4 bg-black add w-full absolute invisible">
+            <li>Action</li>
+            <li>Comédie</li>
+            <li>Documentaires</li>
+            <li>Drames</li>
+            <li>Fantastique</li>
+            <li>Horreur</li>
+            <li>Indépendants</li>
+            <li>Jeunesse et famille</li>
+            <li>Policier</li>
+            <li>Romance</li>
+            <li>SF</li>
+            <li>Thriller</li>
+        </ul>
     </div>
 
-    <h2 class="text-center text-2xl pt-6">Most Popular</h2>
 
-    <div class="grid grid-cols-4 gap-x-10 p-10 text-center">
-        <div class="bg-orange-500 rounded-3xl">
-            <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-            <h2 class="p-2 text-xl">Title</h2>
-            <p class="text-lg">like</p>
+
+    <main class="ailleurs">
+
+        <div class="background-moovie flex flex-col justify-end items-center">
+            <div></div>
+            <div></div>
+            <div class="flex flex-col gap-y-2 text-center text-2xl">
+                <h2>Arknights</h2>
+                <button class="bg-orange-500 p-1.5 rounded">Lecture</button>
+                <button class="bg-orange-500 p-1.5 rounded">Plus d'info</button>
+            </div>
         </div>
-        <div class="bg-orange-500 rounded-3xl">
-            <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-            <h2 class="p-2 text-xl">Title</h2>
-            <p>like</p>
+
+        <h2 class="text-center text-2xl pt-6">Most Popular</h2>
+
+        <div class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-10">
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p class="text-lg">like</p>
+            </div>
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p>like</p>
+            </div>
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p>like</p>
+            </div>
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p>like</p>
+            </div>
+
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p class="text-lg">like</p>
+            </div>
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p>like</p>
+            </div>
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p>like</p>
+            </div>
+            <div class="bg-orange-500 rounded-3xl">
+                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
+                <h2 class="p-2 text-xl">Title</h2>
+                <p>like</p>
+            </div>
+            
         </div>
-        <div class="bg-orange-500 rounded-3xl">
-            <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-            <h2 class="p-2 text-xl">Title</h2>
-            <p>like</p>
+
+    </main>
+
+    <footer>
+        <div>
+            <hr class="h-px border-none bg-gray-700 mx-10">
+            <div class="my-6 mx-10 flex justify-between">
+                <p>© - Théa Blachon / Julien Grenouilleau</p>
+                <a href="https://github.com/DragiboO/devlab-back-end" class="hover:text-orange-500">Github</a>
+            </div>
         </div>
-        <div class="bg-orange-500 rounded-3xl">
-            <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-            <h2 class="p-2 text-xl">Title</h2>
-            <p>like</p>
-        </div>
-    </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
 </body>
 </html>
