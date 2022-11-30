@@ -14,8 +14,8 @@ class Connection
 
     public function insert(User $user): bool
     {
-        $query = 'INSERT INTO user (email, password, pseudo, created_at)
-                    VALUES (:email, :password, :pseudo, :created_at)';
+        $query = 'INSERT INTO user (email, password, pseudo, created_at, token, validated)
+                    VALUES (:email, :password, :pseudo, :created_at, :token, :validated)';
 
         $statement = $this->pdo->prepare($query);
 
@@ -24,6 +24,8 @@ class Connection
             'password' => md5($user->password . 'SALT'),
             'pseudo' => $user->pseudo,
             'created_at' => $user->created_at,
+            'token' => $user->token,
+            'validated' => $user->validated,
         ]);
     }
 }

@@ -11,7 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
     <h1>Register</h1>
@@ -42,6 +42,8 @@ session_start();
             );
 
             $user->created_at = date("Y-m-d H:i:s");
+            $user->token = bin2hex(openssl_random_pseudo_bytes(32));
+            $user->validated = 0;
 
             if ($user->verify()) {
                 // record to database
@@ -51,6 +53,10 @@ session_start();
                 if ($result) {
                     echo '<h3 class="success">Registered with success 😎</h3>';
                     echo '<p class="timer"></p>';
+
+                    $message = "Hi $user->pseudo! Account created here is the activation link http://devlab-back-end.test/page/activate.php?token=$user->token";
+
+                    mail($user->email, 'Activate Account' , $message , 'From: test.devlab@gmail.com');
 
                     header('refresh:5;url=login.php');
 

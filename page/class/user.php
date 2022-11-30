@@ -4,6 +4,9 @@ class User
 {
     public string $id;
     public string $created_at;
+    public string $token;
+    public string $validated_at;
+    public string $validated;
 
     public function __construct(
         public string $email,
