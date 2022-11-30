@@ -28,4 +28,14 @@ class Connection
             'validated' => $user->validated,
         ]);
     }
+
+    public function validate($email, $token):bool
+    {
+        $date = date("Y-m-d H:i:s");
+        $query = 'UPDATE user SET validated = 1, validated_at ="' . $date . '" WHERE email ="' . $email . '" AND token="' . $token .'"';
+
+        $statement = $this->pdo->prepare($query);
+
+        return $statement->execute();
+    }
 }

@@ -10,6 +10,7 @@
 DROP TABLE IF EXISTS `album`;
 CREATE TABLE `album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
   `is_public` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -52,8 +53,11 @@ CREATE TABLE `user` (
   `pseudo` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `validated` int(11) NOT NULL,
+  `validated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `user_album`;
 CREATE TABLE `user_album` (
