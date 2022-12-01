@@ -55,6 +55,19 @@ class Connection
         }
     }
 
+    public function tokenExist($token)
+    {
+        $query = 'SELECT token FROM user WHERE token ="' . $token . '"';
+
+        $result = $this->pdo->query($query);
+
+        if ($result->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function validate($email, $token):bool
     {
         $date = date("Y-m-d H:i:s");

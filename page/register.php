@@ -69,7 +69,7 @@ session_start();
 
                             mail($user->email, 'Activate Account' , $message , 'From: test.devlab@gmail.com');
 
-                            //header('refresh:5;url=login.php');
+                            header('refresh:5;url=login.php');
 
                             echo '<script src="../assets/register.js"></script>';
                         } else {
