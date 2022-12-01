@@ -44,28 +44,42 @@ session_start();
             $user->token = bin2hex(openssl_random_pseudo_bytes(32));
             $user->validated = 0;
 
-            if ($user->verify()) {
-                // record to database
-                $connection = new Connection();
-                $result = $connection->insert($user);
+            $connection = new Connection();
+            $result = $connection->uniqueMail($user->email);
+
+            if ($result) {
+                echo '<h3>Email déja utilisé</h3>';
+            } else {
+
+                $result = $connection->uniquePseudo($user->pseudo);
 
                 if ($result) {
-                    echo '<h3 class="success">Registered with success 😎</h3>';
-                    echo '<p class="timer"></p>';
-
-                    $message = "Hi $user->pseudo! Account created here is the activation link http://devlab-back-end.test/page/activate.php?email=$user->email&token=$user->token";
-
-                    mail($user->email, 'Activate Account' , $message , 'From: test.devlab@gmail.com');
-
-                    header('refresh:5;url=login.php');
-
-                    echo '<script src="../assets/register.js"></script>';
+                    echo '<h3>Pseudo déja utilisé</h3>';
                 } else {
-                    echo '<h3 class="error">Internal error...</h3>';
-                }
 
-            } else {
-                echo '<h3 class="error">Form has an error 😥</h3>';
+                    if ($user->verify()) {
+                        // record to database
+                        $result = $connection->insert($user);
+
+                        if ($result) {
+                            echo '<h3>Inscription réussie</h3>';
+                            echo '<p class="timer"></p>';
+
+                            $message = "Hi $user->pseudo! Account created here is the activation link http://devlab-back-end.test/page/activate.php?email=$user->email&token=$user->token";
+
+                            mail($user->email, 'Activate Account' , $message , 'From: test.devlab@gmail.com');
+
+                            //header('refresh:5;url=login.php');
+
+                            echo '<script src="../assets/register.js"></script>';
+                        } else {
+                            echo '<h3>Internal error...</h3>';
+                        }
+
+                    } else {
+                        echo '<h3>Mot de passe différent !</h3>';
+                    }
+                }
             }
         }
         ?>

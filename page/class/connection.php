@@ -29,6 +29,32 @@ class Connection
         ]);
     }
 
+    public function uniqueMail($email)
+    {
+        $query = 'SELECT email FROM user WHERE email ="' . $email . '"';
+
+        $result = $this->pdo->query($query);
+
+        if ($result->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function uniquePseudo($pseudo)
+    {
+        $query = 'SELECT pseudo FROM user WHERE pseudo ="' . $pseudo . '"';
+
+        $result = $this->pdo->query($query);
+
+        if ($result->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function validate($email, $token):bool
     {
         $date = date("Y-m-d H:i:s");
