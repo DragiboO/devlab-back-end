@@ -55,48 +55,7 @@
 
         <hr class="h-1 border-none bg-gray-700 mx-40 mt-6">
 
-        <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10">
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p class="text-lg">like</p>
-            </div>
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p>like</p>
-            </div>
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p>like</p>
-            </div>
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p>like</p>
-            </div>
-
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p class="text-lg">like</p>
-            </div>
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p>like</p>
-            </div>
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p>like</p>
-            </div>
-            <div class="bg-orange-500 rounded-3xl">
-                <img src="../assets/image/tensura.jpg" alt="" class="rounded-t-2xl">
-                <h2 class="p-2 text-xl">Title</h2>
-                <p>like</p>
-            </div>
+        <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10 afficher">
             
         </div>
 
@@ -115,5 +74,6 @@
     </footer>
 
     <script src="../assets/script.js"></script>
+    <script src="../assets/api.js"></script>
 </body>
 </html>

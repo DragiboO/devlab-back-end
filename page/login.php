@@ -14,18 +14,17 @@ session_start();
 </head>
 <body>
 
-    <div class="w-[300px] h-auto text-lg divabsolute text-center">
+<main class="content h-[100vh] flex justify-start items-center flex-col gap-y-2">
+    <div class="w-[500px] h-auto text-lg text-center mt-[15vh]">
 
         <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
                 <input type="pseudo" name="pseudo" placeholder="pseudo" class="rounded-lg p-2 text-black">
                 <input type="password" name="password" placeholder="password" class="rounded-lg p-2 text-black">
                 <input type="submit" value="Login" name="login">
             </form>
-
-            
             <a href="register.php">Or Register</a>
-
     </div>
+</main>
 
 <?php
 
