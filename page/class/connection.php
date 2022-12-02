@@ -68,10 +68,10 @@ class Connection
         }
     }
 
-    public function validate($email, $token):bool
+    public function validate($email, $token): bool
     {
         $date = date("Y-m-d H:i:s");
-        $query = 'UPDATE user SET validated = 1, validated_at ="' . $date . '" WHERE email ="' . $email . '" AND token="' . $token .'"';
+        $query = 'UPDATE user SET validated = 1, validated_at ="' . $date . '" WHERE email ="' . $email . '" AND token="' . $token . '"';
 
         $statement = $this->pdo->prepare($query);
 
@@ -90,27 +90,31 @@ class Connection
 
         $userinfo = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $userinfo = $userinfo[0];
-
-        $userObject = new User(
-            $userinfo['email'],
-            $userinfo['password'],
-            '',
-            $userinfo['pseudo'],
-        );
-
-        $userObject->id = $userinfo['id'];
-
-        if ($userObject->password === $password) {
-            $_SESSION['user_id'] = $userObject->id;
-            $_SESSION['pseudo'] = $userObject->pseudo;
-            $_SESSION['email'] = $userObject->email;
-
-            header('Location: myprofile.php');
-
-            return 'Bonjour ' . $userObject->pseudo;
+        if (count($userinfo) == 0) {
+            return 'Utilisateur inconnu(e)';
         } else {
-            return 'Mot de passe incorrect';
+            $userinfo = $userinfo[0];
+
+            $userObject = new User(
+                $userinfo['email'],
+                $userinfo['password'],
+                '',
+                $userinfo['pseudo'],
+            );
+
+            $userObject->id = $userinfo['id'];
+
+            if ($userObject->password === $password) {
+                $_SESSION['user_id'] = $userObject->id;
+                $_SESSION['pseudo'] = $userObject->pseudo;
+                $_SESSION['email'] = $userObject->email;
+
+                header('refresh:3;url=myprofile.php');
+
+                return 'Bonjour ' . $userObject->pseudo;
+            } else {
+                return 'Mot de passe incorrect';
+            }
         }
     }
 }

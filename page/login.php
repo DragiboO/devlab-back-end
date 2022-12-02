@@ -42,6 +42,8 @@ if ($_POST) {
     $connection = new Connection();
 
     $result = $connection->connection($user);
+
+    echo $result;
 }
 
 
