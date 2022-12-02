@@ -10,9 +10,9 @@ class User
 
     public function __construct(
         public string $email,
-        public string $pseudo,
         public string $password,
         public string $password2,
+        public string $pseudo,
     )
     {
     }

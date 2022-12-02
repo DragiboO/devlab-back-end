@@ -10,7 +10,8 @@
 </head>
 <body>
 
-    <div class="w-[300px] h-auto text-lg divabsolute text-center">
+<main class="content h-[100vh] flex justify-center items-center">
+    <div class="w-[300px] h-auto text-lg text-center">
 
         <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
                 <input type="email" name="email" placeholder="email" class="rounded-lg p-2 text-black">
@@ -23,7 +24,7 @@
 
     </div>
 
-
+</main>
 
 </body>
 </html>
