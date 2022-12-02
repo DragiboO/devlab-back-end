@@ -10,8 +10,8 @@
 </head>
 <body>
 
-<main class="content h-[100vh] flex justify-center items-center">
-    <div class="w-[300px] h-auto text-lg text-center">
+<main class="content h-[100vh] flex justify-start items-center flex-col gap-y-2">
+    <div class="w-[500px] h-auto text-lg text-center mt-[15vh]">
 
         <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
                 <input type="email" name="email" placeholder="email" class="rounded-lg p-2 text-black">
