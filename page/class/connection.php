@@ -77,4 +77,40 @@ class Connection
 
         return $statement->execute();
     }
+
+    public function connection(User $user): string
+    {
+        $pseudo = $user->pseudo;
+        $password = md5($user->password . 'SALT');
+
+        $query = "SELECT * FROM user WHERE pseudo ='" . $pseudo . "'";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        $userinfo = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $userinfo = $userinfo[0];
+
+        $userObject = new User(
+            $userinfo['email'],
+            $userinfo['password'],
+            '',
+            $userinfo['pseudo'],
+        );
+
+        $userObject->id = $userinfo['id'];
+
+        if ($userObject->password === $password) {
+            $_SESSION['user_id'] = $userObject->id;
+            $_SESSION['pseudo'] = $userObject->pseudo;
+            $_SESSION['email'] = $userObject->email;
+
+            header('Location: myprofile.php');
+
+            return 'Bonjour ' . $userObject->pseudo;
+        } else {
+            return 'Mot de passe incorrect';
+        }
+    }
 }

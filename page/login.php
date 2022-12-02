@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,7 +17,7 @@
     <div class="w-[300px] h-auto text-lg divabsolute text-center">
 
         <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
-                <input type="email" name="email" placeholder="email" class="rounded-lg p-2 text-black">
+                <input type="pseudo" name="pseudo" placeholder="pseudo" class="rounded-lg p-2 text-black">
                 <input type="password" name="password" placeholder="password" class="rounded-lg p-2 text-black">
                 <input type="submit" value="Login" name="login">
             </form>
@@ -23,7 +27,26 @@
 
     </div>
 
+<?php
 
+require_once './class/user.php';
+require_once './class/connection.php';
+
+if ($_POST) {
+    $user = new User(
+        '',
+        $_POST['password'],
+        '',
+        $_POST['pseudo'],
+    );
+
+    $connection = new Connection();
+
+    $result = $connection->connection($user);
+}
+
+
+?>
 
 </body>
 </html>
