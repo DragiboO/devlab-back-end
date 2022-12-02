@@ -18,12 +18,8 @@
                 <input type="password" name="password" placeholder="password" class="rounded-lg p-2 text-black">
                 <input type="submit" value="Login" name="login">
             </form>
-
-            
             <a href="register.php">Or Register</a>
-
     </div>
-
 </main>
 
 </body>
