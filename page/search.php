@@ -13,6 +13,6 @@
 <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10 afficher">
 </div>
 
-<script src="../assets/api.js"></script>
+<script src="../assets/js/api.js"></script>
 </body>
 </html>

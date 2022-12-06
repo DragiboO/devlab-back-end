@@ -72,7 +72,7 @@ session_start();
 
                             header('refresh:5;url=login.php');
 
-                            echo '<script src="../assets/register.js"></script>';
+                            echo '<script src="../assets/js/register.js"></script>';
                         } else {
                             echo '<h3>Internal error...</h3>';
                         }

@@ -76,7 +76,7 @@ session_start();
         </div>
     </footer>
 
-    <script src="../assets/script.js"></script>
-    <script src="../assets/api.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/api.js"></script>
 </body>
 </html>
