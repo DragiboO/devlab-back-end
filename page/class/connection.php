@@ -2,6 +2,7 @@
 
 require_once 'user.php';
 require_once 'config.php';
+require_once 'album.php';
 
 class Connection
 {
@@ -14,8 +15,8 @@ class Connection
 
     public function insert(User $user): bool
     {
-        $query = 'INSERT INTO user (email, password, pseudo, created_at, token, validated)
-                    VALUES (:email, :password, :pseudo, :created_at, :token, :validated)';
+        $query = 'INSERT INTO user (email, password, pseudo, created_at, token, validated, first_login)
+                    VALUES (:email, :password, :pseudo, :created_at, :token, :validated, :first_login)';
 
         $statement = $this->pdo->prepare($query);
 
@@ -26,6 +27,7 @@ class Connection
             'created_at' => $user->created_at,
             'token' => $user->token,
             'validated' => $user->validated,
+            'first_login' => $user->first_login,
         ]);
     }
 
@@ -109,6 +111,18 @@ class Connection
                 $_SESSION['pseudo'] = $userObject->pseudo;
                 $_SESSION['email'] = $userObject->email;
 
+                $query = 'SELECT first_login FROM user WHERE pseudo ="' . $userObject->pseudo . '"';
+                $result = $this->pdo->query($query);
+
+                if ($result->fetchColumn() == 0) {
+                    $this->firstLogin($userObject->pseudo);
+
+                    $album = new Album('Visionnés',1,1,0,$userObject->id);
+                    $this->createAlbum($album);
+                    $album = new Album('Liste des envies',1,0,1,$userObject->id);
+                    $this->createAlbum($album);
+                }
+
                 header('refresh:3;url=myprofile.php');
 
                 return 'Bonjour ' . $userObject->pseudo;
@@ -116,5 +130,29 @@ class Connection
                 return 'Mot de passe incorrect';
             }
         }
+    }
+
+    public function firstLogin($pseudo)
+    {
+        $query = 'UPDATE user SET first_login = 1 WHERE pseudo ="' . $pseudo . '"';
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
+    public function createAlbum(Album $album): bool
+    {
+        $query = 'INSERT INTO album (name, is_public, is_watched, is_wished, owner_id)
+                    VALUES (:name, :isPublic, :isWatched, :isWished, :ownerId)';
+
+        $statement = $this->pdo->prepare($query);
+
+        return $statement->execute([
+            'name' => $album->name,
+            'isPublic' => $album->isPublic,
+            'isWatched' => $album->isWatched,
+            'isWished' => $album->isWished,
+            'ownerId' => $album->ownerId,
+        ]);
     }
 }

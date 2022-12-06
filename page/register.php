@@ -44,6 +44,7 @@ session_start();
             $user->created_at = date("Y-m-d H:i:s");
             $user->token = bin2hex(openssl_random_pseudo_bytes(32));
             $user->validated = 0;
+            $user->first_login = 0;
 
             $connection = new Connection();
             $result = $connection->uniqueMail($user->email);

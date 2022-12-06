@@ -7,6 +7,7 @@ class User
     public string $token;
     public string $validated_at;
     public string $validated;
+    public string $first_login;
 
     public function __construct(
         public string $email,
