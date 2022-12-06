@@ -4,7 +4,8 @@
 
 module.exports = {
   content: [
-      "./page/**/*.php"
+      "./page/**/*.php",
+      "./assets/js/**/*.js"
   ],
   theme: {
     extend: {},
