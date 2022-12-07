@@ -121,6 +121,18 @@ class Connection
                     $this->createAlbum($album);
                     $album = new Album('Liste des envies',1,0,1,$userObject->id);
                     $this->createAlbum($album);
+
+                    $query = 'SELECT id FROM album WHERE owner_id =' . $userObject->id;
+                    $result = $this->pdo->query($query);
+
+                    $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($statement as $id) {
+                        echo $id['id'];
+                        $query = 'INSERT INTO user_album (user_id, album_id, is_owner) VALUES (' . $userObject->id . ', ' . $id['id'] . ', 1)';
+                        $statement = $this->pdo->prepare($query);
+                        $statement->execute();
+                    }
                 }
 
                 header('refresh:3;url=myprofile.php');
