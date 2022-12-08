@@ -16,7 +16,7 @@ CREATE TABLE `album` (
   `is_wished` int(11) NOT NULL,
   `owner_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `album_like`;
 CREATE TABLE `album_like` (
@@ -61,7 +61,7 @@ CREATE TABLE `user` (
   `validated_at` datetime DEFAULT NULL,
   `first_login` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `user_album`;
 CREATE TABLE `user_album` (
