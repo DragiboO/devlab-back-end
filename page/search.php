@@ -5,15 +5,20 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
     <title>search</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/style.css">
+=======
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/main.css">
+>>>>>>> 6933204e2159f7f6cddf0d1079f89ccb5383365a
 </head>
 <body>
 
 <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10 afficher">
 </div>
 
-<script src="../assets/api.js"></script>
+<script src="../assets/js/api.js"></script>
 </body>
 </html>

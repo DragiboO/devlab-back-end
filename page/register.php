@@ -10,8 +10,7 @@ session_start();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/main.css">
 </head>
 <body>
 
@@ -71,9 +70,9 @@ session_start();
 
                             mail($user->email, 'Activate Account' , $message , 'From: test.devlab@gmail.com');
 
-                            //header('refresh:5;url=login.php');
+                            header('refresh:5;url=login.php');
 
-                            echo '<script src="../assets/register.js"></script>';
+                            echo '<script src="../assets/js/register.js"></script>';
                         } else {
                             echo '<h3>Internal error...</h3>';
                         }

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,8 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+<<<<<<< HEAD:index.php
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/style.css">
+=======
+    <link rel="stylesheet" href="../assets/main.css">
+>>>>>>> 6933204e2159f7f6cddf0d1079f89ccb5383365a:page/index.php
 </head>
 <body>
     <div>
@@ -73,7 +81,12 @@
         </div>
     </footer>
 
+<<<<<<< HEAD:index.php
     <script src="assets/script.js"></script>
     <script src="assets/api.js"></script>
+=======
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/api.js"></script>
+>>>>>>> 6933204e2159f7f6cddf0d1079f89ccb5383365a:page/index.php
 </body>
 </html>

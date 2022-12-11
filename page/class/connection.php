@@ -55,13 +55,66 @@ class Connection
         }
     }
 
-    public function validate($email, $token):bool
+    public function tokenExist($token)
+    {
+        $query = 'SELECT token FROM user WHERE token ="' . $token . '"';
+
+        $result = $this->pdo->query($query);
+
+        if ($result->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function validate($email, $token): bool
     {
         $date = date("Y-m-d H:i:s");
-        $query = 'UPDATE user SET validated = 1, validated_at ="' . $date . '" WHERE email ="' . $email . '" AND token="' . $token .'"';
+        $query = 'UPDATE user SET validated = 1, validated_at ="' . $date . '" WHERE email ="' . $email . '" AND token="' . $token . '"';
 
         $statement = $this->pdo->prepare($query);
 
         return $statement->execute();
+    }
+
+    public function connection(User $user): string
+    {
+        $pseudo = $user->pseudo;
+        $password = md5($user->password . 'SALT');
+
+        $query = "SELECT * FROM user WHERE pseudo ='" . $pseudo . "'";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        $userinfo = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($userinfo) == 0) {
+            return 'Utilisateur inconnu(e)';
+        } else {
+            $userinfo = $userinfo[0];
+
+            $userObject = new User(
+                $userinfo['email'],
+                $userinfo['password'],
+                '',
+                $userinfo['pseudo'],
+            );
+
+            $userObject->id = $userinfo['id'];
+
+            if ($userObject->password === $password) {
+                $_SESSION['user_id'] = $userObject->id;
+                $_SESSION['pseudo'] = $userObject->pseudo;
+                $_SESSION['email'] = $userObject->email;
+
+                header('refresh:3;url=myprofile.php');
+
+                return 'Bonjour ' . $userObject->pseudo;
+            } else {
+                return 'Mot de passe incorrect';
+            }
+        }
     }
 }
