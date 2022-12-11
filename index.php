@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div>
         <nav class="flex justify-between py-6 px-10 text-lg relative">
             <div class="flex items-center gap-x-10">
-                <img src="../assets/image/crunchyroule.png" alt="logo" class="w-12">
+                <img src="assets/image/crunchyroule.png" alt="logo" class="w-12">
                 <button class="hover">Naviguer</button>
             </div>
             <div class="flex items-center gap-x-10">
-                <img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10">
-                <h2>Se connecter / s'inscrire</h2>
+                <img src="assets/image/loupeblanche.png" alt="loupe" class="w-10">
+                <a href="page/login.php">Se connecter / s'inscrire</a>
             </div>
         </nav>
 
@@ -45,7 +45,7 @@
             <div></div>
             <div></div>
             <div class="flex flex-col gap-y-2 text-center text-2xl">
-                <h2>Arknights</h2>
+                <h2>20th Century Girl</h2>
                 <button class="bg-orange-500 p-1.5 rounded">Lecture</button>
                 <button class="bg-orange-500 p-1.5 rounded">Plus d'info</button>
             </div>
@@ -73,7 +73,7 @@
         </div>
     </footer>
 
-    <script src="../assets/script.js"></script>
-    <script src="../assets/api.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="assets/api.js"></script>
 </body>
 </html>

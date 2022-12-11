@@ -11,7 +11,7 @@
 <body>
 
 <main class="content h-[100vh] flex justify-start items-center flex-col gap-y-2">
-    <div class="w-[500px] h-auto text-lg text-center mt-[15vh]">
+    <div class="w-[500px] h-auto text-lg text-center mt-[30vh]">
 
         <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
                 <input type="pseudo" name="pseudo" placeholder="pseudo" class="rounded-lg p-2 text-black">
