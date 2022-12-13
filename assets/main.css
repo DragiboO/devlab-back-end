@@ -666,8 +666,17 @@ video {
   border-top-right-radius: 1rem;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-none {
   border-style: none;
+}
+
+.border-amber-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 251 235 / var(--tw-border-opacity));
 }
 
 .bg-neutral-900 {

@@ -167,4 +167,15 @@ class Connection
             'ownerId' => $album->ownerId,
         ]);
     }
+
+    public function addOwnerLastAlbum($user_id)
+    {
+        $query = 'SELECT id FROM album WHERE owner_id = ' . $user_id . ' ORDER BY id DESC LIMIT 1';
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        $query2 = 'INSERT INTO user_album (user_id, album_id, is_owner) VALUES (' . $user_id . ', ' . $statement[0]['id'] . ', 1)';
+        $statement2 = $this->pdo->prepare($query2);
+        $statement2->execute();
+    }
 }

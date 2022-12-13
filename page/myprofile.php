@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,6 +13,49 @@
     <title>My profile</title>
 </head>
 <body>
+
+<?php
+var_dump($_SESSION);
+if (isset($_SESSION['user_id'])) {} else {
+    header('Location: login.php');
+}
+
+?>
+
+<form method="POST">
+    <input type="text" name="album_name" placeholder="nom de l'album" class="text-black">
+    <select name="visibility" class="text-black">
+        <option value="1" class="text-black">Public</option>
+        <option value="0" class="text-black">Privé</option>
+    </select>
+    <input type="submit" value="Créer" name="create" class="border-2 border-amber-50">
+</form>
+
+<?php
+require_once './class/album.php';
+require_once './class/connection.php';
+require_once './class/user.php';
+
+
+if ($_POST) {
+
+    $album = new Album(
+        $_POST['album_name'],
+        $_POST['visibility'],
+        0,
+        0,
+        $_SESSION['user_id']
+    );
+
+    $connection = new Connection();
+    $connection->createAlbum($album);
+
+    $connection->addOwnerLastAlbum($_SESSION['user_id']);
+}
+
+
+
+?>
 
 </body>
 </html>

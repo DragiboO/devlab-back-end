@@ -20,7 +20,9 @@ session_start();
             </div>
             <div class="flex items-center gap-x-10">
                 <img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10">
-                <h2>Se connecter / s'inscrire</h2>
+                <a href="./login.php">
+                    <h2>Se connecter / s'inscrire</h2>
+                </a>
             </div>
         </nav>
 
