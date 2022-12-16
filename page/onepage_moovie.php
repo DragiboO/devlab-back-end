@@ -19,6 +19,6 @@
     <script>
         var url_onepage = "https://api.themoviedb.org/3/movie/<?php echo $id ?>?api_key=f213e718db2b8476f73cd84bb74f1963&language=fr-FR"
     </script>
-    <script src="../assets/onepage.js"></script>
+    <script src="../assets/js/onepage.js"></script>
 </body>
 </html>
