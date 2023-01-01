@@ -1,15 +1,8 @@
-<!doctype html>
-<html lang="fr">
+<?php require "header.php"; ?>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OnePage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/main.css">
+    <title>One page moovie</title>
 </head>
-<body>
+<main class="ailleurs">
     <div class="onepage">
         <?php
             $id = $_GET['id'];
@@ -19,6 +12,11 @@
     <script>
         var url_onepage = "https://api.themoviedb.org/3/movie/<?php echo $id ?>?api_key=f213e718db2b8476f73cd84bb74f1963&language=fr-FR"
     </script>
+</main>
+<footer>
+    <?php require "footer.php"; ?>
+</footer>
     <script src="../assets/js/onepage.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
