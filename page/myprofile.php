@@ -15,7 +15,6 @@ session_start();
 <body>
 
 <?php
-var_dump($_SESSION);
 if (isset($_SESSION['user_id'])) {} else {
     header('Location: login.php');
 }
@@ -53,9 +52,36 @@ if ($_POST) {
     $connection->addOwnerLastAlbum($_SESSION['user_id']);
 }
 
-
-
 ?>
+
+<section class="base">
+
+    <?php
+
+    $connection = new Connection();
+
+    $connection->queryAlbum($_SESSION['user_id'], 1);
+    $connection->queryAlbum($_SESSION['user_id'], 2);
+
+    ?>
+
+
+
+</section>
+
+<br>
+
+<section class="all">
+
+    <?php
+
+    $connection = new Connection();
+
+    $connection->queryAlbum($_SESSION['user_id'], 0);
+
+    ?>
+
+</section>
 
 </body>
 </html>

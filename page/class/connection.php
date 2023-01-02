@@ -117,9 +117,9 @@ class Connection
                 if ($result->fetchColumn() == 0) {
                     $this->firstLogin($userObject->pseudo);
 
-                    $album = new Album('Visionnés',1,1,0,$userObject->id);
+                    $album = new Album('Visionnés', 1, 1, 0, $userObject->id);
                     $this->createAlbum($album);
-                    $album = new Album('Liste des envies',1,0,1,$userObject->id);
+                    $album = new Album('Liste des envies', 1, 0, 1, $userObject->id);
                     $this->createAlbum($album);
 
                     $query = 'SELECT id FROM album WHERE owner_id =' . $userObject->id;
@@ -177,5 +177,58 @@ class Connection
         $query2 = 'INSERT INTO user_album (user_id, album_id, is_owner) VALUES (' . $user_id . ', ' . $statement[0]['id'] . ', 1)';
         $statement2 = $this->pdo->prepare($query2);
         $statement2->execute();
+    }
+
+    public function queryAlbum($user_id, $type)
+    {
+        if ($type === 0) {
+            $query = 'SELECT * FROM album WHERE owner_id = ' . $user_id . ' AND is_watched = 0 AND is_wished = 0';
+            $result = $this->pdo->query($query);
+            $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($statement as $album) {
+                echo '
+                    <a href="../album.php?id='. $album['id'] .'">
+                        <div>
+                            <p>'. $album['name'] .'</p>
+                        </div>
+                    </a>
+                    ';
+            }
+        }
+
+        if ($type === 1) {
+            $query = 'SELECT * FROM album WHERE owner_id = ' . $user_id . ' AND is_watched = 1';
+            $result = $this->pdo->query($query);
+            $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($statement as $album) {
+                echo '
+                    <a href="../album.php?id='. $album['id'] .'">
+                        <div>
+                            <p>'. $album['name'] .'</p>
+                        </div>
+                    </a>
+                    ';
+            }
+        }
+
+        if ($type === 2) {
+            $query = 'SELECT * FROM album WHERE owner_id = ' . $user_id . ' AND is_wished = 1';
+            $result = $this->pdo->query($query);
+            $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($statement as $album) {
+                echo '
+                    <a href="../album.php?id='. $album['id'] .'">
+                        <div>
+                            <p>'. $album['name'] .'</p>
+                        </div>
+                    </a>
+                    ';
+            }
+        }
+
+
     }
 }
