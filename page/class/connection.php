@@ -182,15 +182,16 @@ class Connection
     public function queryAlbum($user_id, $type)
     {
         if ($type === 0) {
-            $query = 'SELECT * FROM album WHERE owner_id = ' . $user_id . ' AND is_watched = 0 AND is_wished = 0';
+            $query = 'SELECT * FROM album WHERE owner_id = ' . $user_id . ' AND is_watched = 0 AND is_wished = 0 ORDER BY id DESC';
             $result = $this->pdo->query($query);
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($statement as $album) {
                 echo '
                     <a href="../page/view-album.php?id='. $album['id'] .'">
-                        <div>
-                            <p>'. $album['name'] .'</p>
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $album['name'] .'</h2>
                         </div>
                     </a>
                     ';
@@ -205,8 +206,9 @@ class Connection
             foreach ($statement as $album) {
                 echo '
                     <a href="../page/view-album.php?id='. $album['id'] .'">
-                        <div>
-                            <p>'. $album['name'] .'</p>
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $album['name'] .'</h2>
                         </div>
                     </a>
                     ';
@@ -221,8 +223,9 @@ class Connection
             foreach ($statement as $album) {
                 echo '
                     <a href="../page/view-album.php?id='. $album['id'] .'">
-                        <div>
-                            <p>'. $album['name'] .'</p>
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $album['name'] .'</h2>
                         </div>
                     </a>
                     ';
