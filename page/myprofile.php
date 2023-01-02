@@ -1,12 +1,5 @@
-require "header.php";
 <?php
-session_start();
-?>
-
-<!doctype html>
-<html lang="en">
-<?php require "header.php";
-
+require "header.php";
 ?>
 
 <head>
