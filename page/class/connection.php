@@ -188,7 +188,7 @@ class Connection
 
             foreach ($statement as $album) {
                 echo '
-                    <a href="../album.php?id='. $album['id'] .'">
+                    <a href="../page/view-album.php?id='. $album['id'] .'">
                         <div>
                             <p>'. $album['name'] .'</p>
                         </div>
@@ -204,7 +204,7 @@ class Connection
 
             foreach ($statement as $album) {
                 echo '
-                    <a href="../album.php?id='. $album['id'] .'">
+                    <a href="../page/view-album.php?id='. $album['id'] .'">
                         <div>
                             <p>'. $album['name'] .'</p>
                         </div>
@@ -220,7 +220,7 @@ class Connection
 
             foreach ($statement as $album) {
                 echo '
-                    <a href="../album.php?id='. $album['id'] .'">
+                    <a href="../page/view-album.php?id='. $album['id'] .'">
                         <div>
                             <p>'. $album['name'] .'</p>
                         </div>
