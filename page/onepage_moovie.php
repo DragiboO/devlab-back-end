@@ -17,6 +17,5 @@
     <?php require "footer.php"; ?>
 </footer>
     <script src="../assets/js/onepage.js"></script>
-    <script src="../assets/js/script.js"></script>
 </body>
 </html>

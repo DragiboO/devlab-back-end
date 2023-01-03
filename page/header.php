@@ -17,31 +17,41 @@ session_start();
     <nav class="flex justify-between py-4 px-10 text-lg relative">
         <div class="flex items-center gap-x-10">
             <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-12"></a>
-            <button class="hover">Naviguer</button>
+            <ul id="menu-demo2">
+                <li><a href="#">Naviguer</a>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Aventure</a></li>
+                        <li><a href="#">Animation</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Crime</a></li>
+                        <li><a href="#">Documentaire</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Famille</a></li>
+                        <li><a href="#">Fantaisie</a></li>
+                        <li><a href="#">Histoire</a></li>
+                        <li><a href="#">Horreur</a></li>
+                        <li><a href="#">Thriller</a></li>
+                        <li><a href="#">Musique</a></li>
+                        <li><a href="#">Mystère</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">Science Fiction</a></li>
+                        <li><a href="#">Film TV</a></li>
+                        <li><a href="#">Thriller</a></li>
+                        <li><a href="#">Guerre</a></li>
+                        <li><a href="#">Western</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <div class="flex items-center gap-x-10">
-            <img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10">
+            <a href="search.php"><img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10"></a>
             <?php if(isset($_SESSION['user_id'])) {?>
-                <a href="myprofile.php">Mon profil</a>
+                <a href="page/myprofile.php">Mon profil</a>
             <?php } else {?>
-            <a href="page/login.php">Se connecter / s'inscrire</a>
+                <a href="page/login.php">Se connecter / s'inscrire</a>
             <?php }
             ?>
         </div>
     </nav>
-
-    <ul class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-4 bg-neutral-900 add w-full absolute invisible">
-        <li>Action</li>
-        <li>Comédie</li>
-        <li>Documentaires</li>
-        <li>Drames</li>
-        <li>Fantastique</li>
-        <li>Horreur</li>
-        <li>Indépendants</li>
-        <li>Jeunesse et famille</li>
-        <li>Policier</li>
-        <li>Romance</li>
-        <li>SF</li>
-        <li>Thriller</li>
-    </ul>
 </div>

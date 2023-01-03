@@ -24,7 +24,7 @@ body {
 
 .background-moovie {
     background-image: linear-gradient(0deg, rgba(23,23,23,0.95) 4%, rgba(23,23,23,0.65) 19%, rgba(255,255,255,0) 31%),
-    url("https://image.tmdb.org/t/p/original/rl7Jw8PjhSIjArOlDNv0JQPL1ZV.jpg");
+    url("https://image.tmdb.org/t/p/original/r9PkFnRUIthgBp2JZZzD380MWZy.jpg");
     height: 70vh;
     background-size: cover;
     background-position: top;
@@ -55,7 +55,7 @@ body {
 }
 #menu-demo2 ul{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     position:absolute;
     text-align: center;
     z-index: 1000;
@@ -71,27 +71,25 @@ body {
     max-height:15em;
 }
 #menu-demo2 li:last-child{
-    background-color: #CFFF6A;
-    background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
-    background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
+    background-color: #171717;
 }
 #menu-demo2 li:last-child li{
-    background:#677F35;
+    background: #171717;
 }
 #menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
-    background:#CFFF6A;
+    background: #f97316;
 }
 
 /* les a href */
 #menu-demo2 a{
     text-decoration:none;
     display:block;
-    padding:8px 70px;
+    padding:10px 170px;
     color:#fff;
     font-family:arial;
 }
 #menu-demo2 ul a{
-    padding:8px 0;
+    padding: 5px 0;
 }
 #menu-demo2 li:hover li a{
     color:#fff;

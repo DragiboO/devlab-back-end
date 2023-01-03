@@ -13,7 +13,7 @@
         </div>
         <div>
             <form method="POST">
-                <button name="disconnect" type="submit" class="text-xl">Se déconnecter</button>
+                <button name="disconnect" type="submit" class="text-xl border-b-2 border-orange-500">Se déconnecter</button>
             </form>
         </div>
     </div>
