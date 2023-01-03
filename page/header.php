@@ -47,7 +47,7 @@ session_start();
         <div class="flex items-center gap-x-10">
             <a href="search.php"><img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10"></a>
             <?php if(isset($_SESSION['user_id'])) {?>
-                <a href="page/myprofile.php">Mon profil</a>
+                <a href="myprofile.php">Mon profil</a>
             <?php } else {?>
                 <a href="page/login.php">Se connecter / s'inscrire</a>
             <?php }

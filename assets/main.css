@@ -579,6 +579,10 @@ video {
   margin-top: 15vh;
 }
 
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -696,6 +700,15 @@ video {
   row-gap: 2.5rem;
 }
 
+.gap-x-14 {
+  -moz-column-gap: 3.5rem;
+       column-gap: 3.5rem;
+}
+
+.gap-y-14 {
+  row-gap: 3.5rem;
+}
+
 .gap-y-4 {
   row-gap: 1rem;
 }
@@ -736,6 +749,11 @@ video {
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -747,6 +765,10 @@ video {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-40 {
+  padding: 10rem;
 }
 
 .py-4 {
@@ -772,6 +794,18 @@ video {
 .px-36 {
   padding-left: 9rem;
   padding-right: 9rem;
+}
+
+.pr-60 {
+  padding-right: 15rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .pl-\[10em\] {
@@ -814,6 +848,11 @@ video {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .blur-sm {
@@ -910,7 +949,8 @@ body {
 #menu-demo2 a{
   text-decoration:none;
   display:block;
-  padding:10px 170px;
+  padding: 10px 330px 10px 40px;
+  padding-right: 170px;
   color:#fff;
   font-family:arial;
 }

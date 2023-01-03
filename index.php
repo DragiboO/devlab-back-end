@@ -22,23 +22,31 @@ session_start();
                 <li><a href="#">Naviguer</a>
                     <ul>
                         <li><a href="#">Action</a></li>
-                        <li><a href="#">Comédie</a></li>
-                        <li><a href="#">Documentaires</a></li>
-                        <li><a href="#">Drames</a></li>
-                        <li><a href="#">Fantastique</a></li>
+                        <li><a href="#">Aventure</a></li>
+                        <li><a href="#">Animation</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Crime</a></li>
+                        <li><a href="#">Documentaire</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Famille</a></li>
+                        <li><a href="#">Fantaisie</a></li>
+                        <li><a href="#">Histoire</a></li>
                         <li><a href="#">Horreur</a></li>
-                        <li><a href="#">Indépendants</a></li>
-                        <li><a href="#">Jeunesse et famille</a></li>
-                        <li><a href="#">Policier</a></li>
-                        <li><a href="#">Romance</a></li>
-                        <li><a href="#">SF</a></li>
                         <li><a href="#">Thriller</a></li>
+                        <li><a href="#">Musique</a></li>
+                        <li><a href="#">Mystère</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">Science Fiction</a></li>
+                        <li><a href="#">Film TV</a></li>
+                        <li><a href="#">Thriller</a></li>
+                        <li><a href="#">Guerre</a></li>
+                        <li><a href="#">Western</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="flex items-center gap-x-10">
-            <img src="assets/image/loupeblanche.png" alt="loupe" class="w-10">
+            <a href="page/search.php"><img src="assets/image/loupeblanche.png" alt="loupe" class="w-10"></a>
             <?php if(isset($_SESSION['user_id'])) {?>
                 <a href="page/myprofile.php">Mon profil</a>
             <?php } else {?>

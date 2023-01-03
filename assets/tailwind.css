@@ -84,7 +84,8 @@ body {
 #menu-demo2 a{
     text-decoration:none;
     display:block;
-    padding:10px 170px;
+    padding: 10px 330px 10px 40px;
+    padding-right: 170px;
     color:#fff;
     font-family:arial;
 }
