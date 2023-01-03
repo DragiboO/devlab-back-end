@@ -14,7 +14,7 @@ session_start();
 
 <body>
 <div>
-    <nav class="flex justify-between py-6 px-10 text-lg relative">
+    <nav class="flex justify-between py-4 px-10 text-lg relative">
         <div class="flex items-center gap-x-10">
             <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-12"></a>
             <button class="hover">Naviguer</button>

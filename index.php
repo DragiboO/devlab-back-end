@@ -15,10 +15,27 @@ session_start();
 
 <body>
 <div>
-    <nav class="flex justify-between py-6 px-10 text-lg relative">
+    <nav class="flex justify-between py-4 px-10 text-lg relative">
         <div class="flex items-center gap-x-10">
             <img src="assets/image/crunchyroule.png" alt="logo" class="w-12">
-            <button class="hover">Naviguer</button>
+            <ul id="menu-demo2">
+                <li><a href="#">Lien menu 1</a>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Comédie</a></li>
+                        <li><a href="#">Documentaires</a></li>
+                        <li><a href="#">Drames</a></li>
+                        <li><a href="#">Fantastique</a></li>
+                        <li><a href="#">Horreur</a></li>
+                        <li><a href="#">Indépendants</a></li>
+                        <li><a href="#">Jeunesse et famille</a></li>
+                        <li><a href="#">Policier</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">SF</a></li>
+                        <li><a href="#">Thriller</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <div class="flex items-center gap-x-10">
             <img src="assets/image/loupeblanche.png" alt="loupe" class="w-10">
@@ -30,21 +47,6 @@ session_start();
             ?>
         </div>
     </nav>
-
-    <ul class="grid grid-cols-4 gap-x-10 p-10 text-center gap-y-4 bg-neutral-900 add w-full absolute invisible">
-        <li>Action</li>
-        <li>Comédie</li>
-        <li>Documentaires</li>
-        <li>Drames</li>
-        <li>Fantastique</li>
-        <li>Horreur</li>
-        <li>Indépendants</li>
-        <li>Jeunesse et famille</li>
-        <li>Policier</li>
-        <li>Romance</li>
-        <li>SF</li>
-        <li>Thriller</li>
-    </ul>
 </div>
 
     <main class="ailleurs">
@@ -59,15 +61,13 @@ session_start();
             </div>
         </div>
 
-        <h2 class="text-2xl pt-6 pb-0 px-40">Most Popular</h2>
+        <h2 class="text-xl pt-6 pb-0 px-40">Most Popular</h2>
 
-        <hr class="h-1 border-none bg-gray-700 mx-40 mt-6">
+        <hr class="h-px border-none bg-gray-700 mx-40 mt-6">
 
-        <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10 afficher">
+        <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10 afficher mb-4">
             
         </div>
-
-        <h2 class="text-2xl pb-6 pt-0 px-40">See all moovies ></h2>
 
     </main>
 
@@ -80,7 +80,6 @@ session_start();
             </div>
         </div>
     </footer>
-    <script src="assets/js/script.js"></script>
     <script src="assets/js/api.js"></script>
 </body>
 </html>
