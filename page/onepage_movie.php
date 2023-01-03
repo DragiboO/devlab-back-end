@@ -1,8 +1,12 @@
-<?php require "header.php"; ?>
 <head>
     <title>One page moovie</title>
 </head>
+<?php require "header.php"; ?>
+
 <main class="ailleurs">
+    <div class="menu_add absolute w-full h-full z-50 flex items-center justify-center hidden">
+        <div class="sub_menu_add bg-black/50 w-[95%] h-[100%] rounded-3xl mt-[15vh]"></div>
+    </div>
     <div class="onepage">
         <?php
             require_once './class/movie.php';
@@ -20,7 +24,7 @@
             </div>
             <div class="mt-10 grid grid-cols-3 pl-[10em]">
                 <div class="mt-[4.5rem] ml-24 text-xl">
-                    <h2>Ajouter à une liste</h2>
+                    <h2 class="add_btn cursor-pointer">Ajouter à une liste</h2>
                 </div>
                 <div class="flex gap-y-4 flex-col">
                     <h2>Titre original : <?php echo $data["original_title"]?></h2>
@@ -45,8 +49,8 @@
                         ?>
                     </h2>
                     <h2>Date de sortie :  <?php echo $data["release_date"]?></h2>
-                    <h2>Revenue :  <?php echo $data["revenue"]?></h2>
-                    <h2>Coût de production :  <?php echo $data["budget"]?></h2>
+                    <h2>Revenue :  <?php echo $data["revenue"]?>$</h2>
+                    <h2>Coût de production :  <?php echo $data["budget"]?>$</h2>
                 </div>
             </div>
             <div class="mt-10 px-36 grid grid-cols-2 ml-[-26em] mb-10">
@@ -59,10 +63,13 @@
         </div>
     </div>
 </main>
+
+
+
 <footer>
     <?php require "footer.php";
     ?>
 </footer>
-    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/one_page_movie.js"></script>
 </body>
 </html>
