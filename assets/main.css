@@ -639,12 +639,8 @@ video {
   height: 60vh;
 }
 
-.w-12 {
-  width: 3rem;
-}
-
-.w-10 {
-  width: 2.5rem;
+.w-2 {
+  width: 0.5rem;
 }
 
 .w-\[500px\] {
@@ -687,9 +683,9 @@ video {
   justify-content: space-between;
 }
 
-.gap-x-10 {
-  -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
 }
 
 .gap-y-2 {
@@ -698,6 +694,11 @@ video {
 
 .gap-y-10 {
   row-gap: 2.5rem;
+}
+
+.gap-x-10 {
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
 }
 
 .gap-x-14 {
@@ -771,14 +772,14 @@ video {
   padding: 10rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-40 {
@@ -820,19 +821,24 @@ video {
   text-align: justify;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-base {
@@ -949,8 +955,7 @@ body {
 #menu-demo2 a{
   text-decoration:none;
   display:block;
-  padding: 10px 330px 10px 40px;
-  padding-right: 170px;
+  padding:10px 170px;
   color:#fff;
   font-family:arial;
 }
@@ -968,7 +973,56 @@ body {
   color:#000;
 }
 
+@media screen and (min-width: 300px) and (max-width: 639px) {
+  #menu-demo2 a {
+    padding: 2px 50px;
+  }
+
+  #menu-demo2 {
+    font-size: 12px;
+  }
+
+  #menu-demo2 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .hover\:text-orange-500:hover {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+
+@media (min-width: 1280px) {
+  .xl\:w-12 {
+    width: 3rem;
+  }
+
+  .xl\:w-10 {
+    width: 2.5rem;
+  }
+
+  .xl\:gap-x-10 {
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
+  }
+
+  .xl\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .xl\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }

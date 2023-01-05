@@ -12,8 +12,8 @@
 
         </div>
         <div>
-            <form method="POST">
-                <button name="disconnect" type="submit" class="text-xl border-b-2 border-orange-500">Se déconnecter</button>
+            <form method="POST" action="disconnect.php">
+                <button name="disconnect" type="submit" class="text-sm xl:text-xl border-b-2 border-orange-500">Se déconnecter</button>
             </form>
         </div>
     </div>
@@ -54,19 +54,6 @@
         </div>
     </div>
 </main>
-
-<?php
-
-require_once 'class/user.php';
-require_once 'class/connection.php';
-$connection = new Connection();
-
-if(isset($_POST['disconnect'])){
-    unset($_SESSION['user_id']);
-    header('Location: ../index.php');
-}
-
-?>
 
 <?php require "footer.php"?>
 </body>

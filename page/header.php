@@ -14,9 +14,9 @@ session_start();
 
 <body>
 <div>
-    <nav class="flex justify-between py-4 px-10 text-lg relative">
-        <div class="flex items-center gap-x-10">
-            <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-12"></a>
+    <nav class="flex justify-between py-1 px-2 text-sm xl:py-4 xl:px-10 xl:text-lg relative">
+        <div class="flex items-center gap-x-1 xl:gap-x-10">
+            <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-2 xl:w-12"></a>
             <ul id="menu-demo2">
                 <li><a href="#">Naviguer</a>
                     <ul>
@@ -44,8 +44,8 @@ session_start();
                 </li>
             </ul>
         </div>
-        <div class="flex items-center gap-x-10">
-            <a href="search.php"><img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10"></a>
+        <div class="flex items-center gap-x-1 xl:gap-x-10">
+            <a href="search.php"><img src="../assets/image/loupeblanche.png" alt="loupe" class="w-2 xl:w-10"></a>
             <?php if(isset($_SESSION['user_id'])) {?>
                 <a href="myprofile.php">Mon profil</a>
             <?php } else {?>
