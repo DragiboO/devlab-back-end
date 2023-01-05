@@ -8,18 +8,17 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/main.css">
 </head>
 
 <body>
 <div>
-    <nav class="flex justify-between py-4 px-10 text-lg relative">
-        <div class="flex items-center gap-x-10">
-            <img src="assets/image/crunchyroule.png" alt="logo" class="w-12">
+    <nav class="flex justify-between py-1 px-4 text-sm sm:py-2 sm:px-8 text-base xl:py-4 xl:px-10 xl:text-lg relative">
+        <div class="flex items-center gap-x-1 sm:gap-x-4 xl:gap-x-10">
+            <a href="../index.php"><img src="assets/image/crunchyroule.png" alt="logo" class="w-6 sm:w-10 xl:w-12"></a>
             <ul id="menu-demo2">
-                <li><a href="#">Naviguer</a>
+                <li><a href="#" id="naviguer">Naviguer</a>
                     <ul>
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Aventure</a></li>
@@ -45,8 +44,8 @@ session_start();
                 </li>
             </ul>
         </div>
-        <div class="flex items-center gap-x-10">
-            <a href="page/search.php"><img src="assets/image/loupeblanche.png" alt="loupe" class="w-10"></a>
+        <div class="flex items-center gap-x-2 sm:gap-x-4 xl:gap-x-10">
+            <a href="page/search.php"><img src="assets/image/loupeblanche.png" alt="loupe" class="w-4 sm:w-6 xl:w-10"></a>
             <?php if(isset($_SESSION['user_id'])) {?>
                 <a href="page/myprofile.php">Mon profil</a>
             <?php } else {?>
@@ -61,18 +60,18 @@ session_start();
         <div class="background-moovie flex flex-col justify-end items-center">
             <div></div>
             <div></div>
-            <div class="flex flex-col gap-y-2 text-center text-2xl">
+            <div class="flex flex-col gap-y-2 text-center sm:text-xl text-base xl:text-2xl">
                 <h2>Le Chat Potté 2</h2>
-                <button class="bg-orange-500 p-1.5 rounded">Lecture</button>
-                <button class="bg-orange-500 p-1.5 rounded">Plus d'info</button>
+                <button class="text-xs sm:text-sm bg-orange-500 p-1.5 rounded">Lecture</button>
+                <button class="text-xs sm:text-sm bg-orange-500 p-1.5 rounded">Plus d'info</button>
             </div>
         </div>
 
-        <h2 class="text-xl pt-6 pb-0 px-40">Most Popular</h2>
+        <h2 class="text-sm pt-4 px-10 mb-2 sm:text-base lg:mb-4 xl:text-xl xl:pt-6 pb-0 xl:px-40">Most Popular</h2>
 
-        <hr class="h-px border-none bg-gray-700 mx-40 mt-6">
+        <hr class="h-px border-none bg-gray-700 mx-10 xl:mx-40 mt-0 xl:mt-6">
 
-        <div class="grid grid-cols-4 gap-x-14 p-40 text-center gap-y-14 pt-10 pb-10 afficher mb-4">
+        <div class="grid grid-cols-1 gap-x-6 p-10 gap-y-10 pt-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12 xl:grid-cols-4 xl:gap-x-14 xl:p-40 text-center xl:gap-y-14 xl:pt-10 xl:pb-10 afficher mb-4">
             
         </div>
 
@@ -80,8 +79,8 @@ session_start();
 
     <footer>
         <div>
-            <hr class="h-px border-none bg-gray-700 mx-40">
-            <div class="my-6 mx-40 flex justify-between">
+            <hr class="h-px border-none bg-gray-700 mx-10 xl:mx-40">
+            <div class="text-xs xl:text-xl my-2 mx-10 xl:my-6 xl:mx-40 flex justify-between">
                 <p>© - Théa Blachon / Julien Grenouilleau</p>
                 <a href="https://github.com/DragiboO/devlab-back-end" class="hover:text-orange-500">Github</a>
             </div>

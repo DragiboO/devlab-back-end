@@ -14,9 +14,9 @@ session_start();
 
 <body>
 <div>
-    <nav class="flex justify-between py-1 px-4 text-sm sm:py-2 sm:px-6 text-base xl:py-4 xl:px-10 xl:text-lg relative">
+    <nav class="flex justify-between py-1 px-4 text-sm sm:py-2 sm:px-8 text-base xl:py-4 xl:px-10 xl:text-lg relative">
         <div class="flex items-center gap-x-1 sm:gap-x-4 xl:gap-x-10">
-            <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-6 sm:w-8 xl:w-12"></a>
+            <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-6 sm:w-10 xl:w-12"></a>
             <ul id="menu-demo2">
                 <li><a href="#" id="naviguer">Naviguer</a>
                     <ul>

@@ -119,19 +119,23 @@ body {
     #naviguer {
         font-size: 14px;
     }
+
+    .background-moovie {
+        height: 30vh;
+    }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1023px) {
     #menu-demo2 a {
-        padding: 1px 40px;
+        padding: 1px 80px;
     }
 
     #menu-demo2 {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     #menu-demo2 ul {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     #menu-demo2 li:hover ul {
@@ -139,6 +143,10 @@ body {
     }
 
     #naviguer {
-        font-size: 14px;
+        font-size: 16px;
+    }
+
+    .background-moovie {
+        height: 50vh;
     }
 }
