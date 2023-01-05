@@ -101,7 +101,7 @@ body {
 
 @media screen and (min-width: 300px) and (max-width: 639px) {
     #menu-demo2 a {
-        padding: 2px 50px;
+        padding: 1px 40px;
     }
 
     #menu-demo2 {
@@ -110,5 +110,35 @@ body {
 
     #menu-demo2 ul {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #menu-demo2 li:hover ul {
+        max-height: 30em;
+    }
+
+    #naviguer {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+    #menu-demo2 a {
+        padding: 1px 40px;
+    }
+
+    #menu-demo2 {
+        font-size: 12px;
+    }
+
+    #menu-demo2 ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #menu-demo2 li:hover ul {
+        max-height: 30em;
+    }
+
+    #naviguer {
+        font-size: 14px;
     }
 }
