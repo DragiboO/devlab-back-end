@@ -187,15 +187,19 @@ class Connection
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($statement as $album) {
-                echo '
-                    <a href="../page/view-album.php?id='. $album['id'] .'">
-                        <div class="relative">
-                            <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $album['name'] .'</h2>
-                        </div>
-                    </a>
-                    ';
+                $objectAlbum = new Album(
+                    $album["name"],
+                    $album["is_public"],
+                    0,
+                    0,
+                    $album["owner_id"]
+                );
+                $objectAlbum->id = $album["id"];
+
+                $list[] = $objectAlbum;
             }
+
+            return $list;
         }
 
         if ($type === 1) {
@@ -204,15 +208,19 @@ class Connection
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($statement as $album) {
-                echo '
-                    <a href="../page/view-album.php?id='. $album['id'] .'">
-                        <div class="relative">
-                            <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $album['name'] .'</h2>
-                        </div>
-                    </a>
-                    ';
+                $objectAlbum = new Album(
+                    $album["name"],
+                    $album["is_public"],
+                    1,
+                    0,
+                    $album["owner_id"]
+                );
+                $objectAlbum->id = $album["id"];
+
+                $list[] = $objectAlbum;
             }
+
+            return $list;
         }
 
         if ($type === 2) {
@@ -221,17 +229,21 @@ class Connection
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($statement as $album) {
-                echo '
-                    <a href="../page/view-album.php?id='. $album['id'] .'">
-                        <div class="relative">
-                            <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $album['name'] .'</h2>
-                        </div>
-                    </a>
-                    ';
+                $objectAlbum = new Album(
+                    $album["name"],
+                    $album["is_public"],
+                    0,
+                    1,
+                    $album["owner_id"]
+                );
+                $objectAlbum->id = $album["id"];
+
+                $list[] = $objectAlbum;
             }
+
+            return $list;
         }
 
-
+        return "";
     }
 }

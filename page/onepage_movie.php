@@ -1,20 +1,107 @@
+<?php
+require_once './class/movie.php';
+require_once './class/connection.php';
+require_once './class/user.php';
+$id = $_GET['id'];
+
+if (isset($_GET['add'])) {
+    $add = $_GET['add'];
+}
+
+$movie = new Movie();
+$data = $movie->getMovie($id);
+?>
+
 <head>
-    <title>One page moovie</title>
+    <title><?php echo $data["title"]?></title>
 </head>
 <?php require "header.php"; ?>
 
 <main class="ailleurs">
     <div class="menu_add absolute w-full h-full z-50 flex items-center justify-center hidden">
-        <div class="sub_menu_add bg-black/50 w-[95%] h-[100%] rounded-3xl mt-[15vh]"></div>
+        <div class="sub_menu_add no_scroll_bar bg-black/75 w-[95%] h-[90%] rounded-3xl mt-[15vh] overflow-y-scroll py-10">
+
+            <h2 class="mx-40 text-2xl">JSP</h2>
+            <hr class="mx-40 mb-8">
+            <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+                <?php
+
+                $connection = new Connection();
+
+                $arrayL = $connection->queryAlbum($_SESSION['user_id'], 1);
+
+                foreach ($arrayL as $list) {
+                    echo '
+                    <div class="relative">
+                        <a href="../page/view-album.php?id='. $list->id .'">
+                            <img src="../assets/image/test.webp" alt="test">
+                        </a>
+                        <div class="p-2 absolute left-0 bottom-0 bg-orange-500 w-full flex items-center justify-between">
+                            <h2 class="text-xl">'. $list->name .'</h2>
+                            <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
+                        </div>
+                    </div>
+                    ';
+                }
+
+                $arrayL = $connection->queryAlbum($_SESSION['user_id'], 2);
+
+                foreach ($arrayL as $list) {
+                    echo '
+                    <div class="relative">
+                        <a href="../page/view-album.php?id='. $list->id .'">
+                            <img src="../assets/image/test.webp" alt="test">
+                        </a>
+                        <div class="p-2 absolute left-0 bottom-0 bg-orange-500 w-full flex items-center justify-between">
+                            <h2 class="text-xl">'. $list->name .'</h2>
+                            <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
+                        </div>
+                    </div>
+                    ';
+                }
+
+                ?>
+            </div>
+            <h2 class="mx-40 text-2xl">Mes listes</h2>
+            <hr class="mx-40 mb-8">
+            <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+                <?php
+
+                $connection = new Connection();
+
+                $arrayL = $connection->queryAlbum($_SESSION['user_id'], 0);
+
+                foreach ($arrayL as $list) {
+                    echo '
+                    <div class="relative">
+                        <a href="../page/view-album.php?id='. $list->id .'">
+                            <img src="../assets/image/test.webp" alt="test">
+                        </a>
+                        <div class="p-2 absolute left-0 bottom-0 bg-orange-500 w-full flex items-center justify-between">
+                            <h2 class="text-xl">'. $list->name .'</h2>
+                            <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
+                        </div>
+                    </div>
+                    ';
+                }
+
+                ?>
+            </div>
+            <h2 class="mx-40 text-2xl">Listes partagés avec vous</h2>
+            <hr class="mx-40 mb-8">
+            <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+                <?php
+
+                $connection = new Connection();
+
+                ?>
+            </div>
+
+
+        </div>
     </div>
     <div class="onepage">
-        <?php
-            require_once './class/movie.php';
-            $id = $_GET['id'];
 
-            $movie = new Movie();
-            $data = $movie->getMovie($id);
-        ?>
         <div>
             <div>
                 <img src="https://image.tmdb.org/t/p/original<?php echo $data["backdrop_path"]?>" alt="affiche_du_film" class="h-[70vh] w-full object-cover blur-sm relative">
@@ -70,6 +157,6 @@
     <?php require "footer.php";
     ?>
 </footer>
-    <script src="../assets/js/one_page_movie.js"></script>
+<script src="../assets/js/one_page_movie.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ session_start();
             <?php if(isset($_SESSION['user_id'])) {?>
                 <a href="myprofile.php">Mon profil</a>
             <?php } else {?>
-            <a href="page/login.php">Se connecter / s'inscrire</a>
+            <a href="login.php">Se connecter / s'inscrire</a>
             <?php }
             ?>
         </div>

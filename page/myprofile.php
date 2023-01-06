@@ -60,14 +60,69 @@ if ($_POST) {
         <input type="submit" value="Créer" name="create" class="border-2 border-amber-50">
     </form>
 
+    <h2 class="mx-40 text-2xl">JSP</h2>
+    <hr class="mx-40 mb-8">
     <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
         <?php
 
         $connection = new Connection();
 
-        $connection->queryAlbum($_SESSION['user_id'], 1);
-        $connection->queryAlbum($_SESSION['user_id'], 2);
-        $connection->queryAlbum($_SESSION['user_id'], 0);
+        $arrayL = $connection->queryAlbum($_SESSION['user_id'], 1);
+
+        foreach ($arrayL as $list) {
+            echo '
+                    <a href="../page/view-album.php?id='. $list->id .'">
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $list->name .'</h2>
+                        </div>
+                    </a>
+                    ';
+        }
+
+        $arrayL = $connection->queryAlbum($_SESSION['user_id'], 2);
+
+        foreach ($arrayL as $list) {
+            echo '
+                    <a href="../page/view-album.php?id='. $list->id .'">
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $list->name .'</h2>
+                        </div>
+                    </a>
+                    ';
+        }
+
+        ?>
+    </div>
+    <h2 class="mx-40 text-2xl">Mes listes</h2>
+    <hr class="mx-40 mb-8">
+    <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+        <?php
+
+        $connection = new Connection();
+
+        $arrayL = $connection->queryAlbum($_SESSION['user_id'], 0);
+
+        foreach ($arrayL as $list) {
+            echo '
+                    <a href="../page/view-album.php?id=' . $list->id . '">
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
+                        </div>
+                    </a>
+                    ';
+        }
+
+        ?>
+    </div>
+    <h2 class="mx-40 text-2xl">Listes partagés avec vous</h2>
+    <hr class="mx-40 mb-8">
+    <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+        <?php
+
+        $connection = new Connection();
 
         ?>
     </div>

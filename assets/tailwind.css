@@ -34,3 +34,12 @@ body {
     background-color: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%);
 }
+
+.no_scroll_bar::-webkit-scrollbar {
+    display: none;
+}
+
+.no_scroll_bar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
