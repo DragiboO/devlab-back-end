@@ -2,6 +2,7 @@
 require_once './class/movie.php';
 require_once './class/connection.php';
 require_once './class/user.php';
+
 $id = $_GET['id'];
 
 if (isset($_GET['add'])) {
@@ -17,86 +18,106 @@ $data = $movie->getMovie($id);
 </head>
 <?php require "header.php"; ?>
 
+<?php
+
+if (isset($_GET['add'])) {
+
+    if (isset($_SESSION['user_id'])) {
+
+        $connection = new Connection();
+        $authorized = $connection->authorizedUser($_SESSION['user_id'], $_GET['add']);
+
+        if ($authorized) {
+
+            $check = $connection->checkIfInAlbum($_GET['add'], $_GET['id']);
+
+            if ($check) {
+                $connection->insertTitle($_GET['add'], $_GET['id']);
+            }
+        }
+    }
+}
+
+
+
+?>
+
 <main class="ailleurs">
     <div class="menu_add absolute w-full h-full z-50 flex items-center justify-center hidden">
-        <div class="sub_menu_add no_scroll_bar bg-black/75 w-[95%] h-[90%] rounded-3xl mt-[15vh] overflow-y-scroll py-10">
+        <div class="sub_menu_add no_scroll_bar bg-black/75 w-[95%] h-[90%] rounded-3xl mt-[15vh] overflow-y-scroll p-10 flex gap-x-4">
 
-            <h2 class="mx-40 text-2xl">JSP</h2>
-            <hr class="mx-40 mb-8">
-            <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
-                <?php
+            <?php
 
-                $connection = new Connection();
+            if (isset($_SESSION["user_id"])) {
 
-                $arrayL = $connection->queryAlbum($_SESSION['user_id'], 1);
+                echo '<div class="w-1/3">';
+                    echo '<h2 class="text-2xl">JSP</h2>';
+                    echo '<hr class="mb-8">';
 
-                foreach ($arrayL as $list) {
-                    echo '
-                    <div class="relative">
-                        <a href="../page/view-album.php?id='. $list->id .'">
-                            <img src="../assets/image/test.webp" alt="test">
-                        </a>
-                        <div class="p-2 absolute left-0 bottom-0 bg-orange-500 w-full flex items-center justify-between">
+                    $connection = new Connection();
+
+                    $arrayL = $connection->queryAlbum($_SESSION['user_id'], 1);
+
+                    foreach ($arrayL as $list) {
+                        echo '
+                        <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
                             <h2 class="text-xl">'. $list->name .'</h2>
                             <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
                         </div>
-                    </div>
                     ';
-                }
+                    }
 
-                $arrayL = $connection->queryAlbum($_SESSION['user_id'], 2);
+                    $arrayL = $connection->queryAlbum($_SESSION['user_id'], 2);
 
-                foreach ($arrayL as $list) {
-                    echo '
-                    <div class="relative">
-                        <a href="../page/view-album.php?id='. $list->id .'">
-                            <img src="../assets/image/test.webp" alt="test">
-                        </a>
-                        <div class="p-2 absolute left-0 bottom-0 bg-orange-500 w-full flex items-center justify-between">
+                    foreach ($arrayL as $list) {
+                        echo '
+                        <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
                             <h2 class="text-xl">'. $list->name .'</h2>
                             <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
                         </div>
-                    </div>
                     ';
-                }
+                    }
 
-                ?>
-            </div>
-            <h2 class="mx-40 text-2xl">Mes listes</h2>
-            <hr class="mx-40 mb-8">
-            <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
-                <?php
+                echo '</div>';
 
-                $connection = new Connection();
 
-                $arrayL = $connection->queryAlbum($_SESSION['user_id'], 0);
+                echo '<div class="w-1/3">';
+                    echo '<h2 class="text-2xl">Mes listes</h2>';
+                    echo '<hr class="mb-8">';
 
-                foreach ($arrayL as $list) {
-                    echo '
-                    <div class="relative">
-                        <a href="../page/view-album.php?id='. $list->id .'">
-                            <img src="../assets/image/test.webp" alt="test">
-                        </a>
-                        <div class="p-2 absolute left-0 bottom-0 bg-orange-500 w-full flex items-center justify-between">
+                    $connection = new Connection();
+
+                    $arrayL = $connection->queryAlbum($_SESSION['user_id'], 0);
+
+                    foreach ($arrayL as $list) {
+                        echo '
+                        <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
                             <h2 class="text-xl">'. $list->name .'</h2>
                             <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
                         </div>
-                    </div>
                     ';
-                }
+                    }
 
-                ?>
-            </div>
-            <h2 class="mx-40 text-2xl">Listes partagés avec vous</h2>
-            <hr class="mx-40 mb-8">
-            <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
-                <?php
+                echo '</div>';
 
-                $connection = new Connection();
 
-                ?>
-            </div>
+                echo '<div class="w-1/3">';
+                    echo '<h2 class="text-2xl">Listes partagés</h2>';
+                    echo '<hr class="mb-8">';
 
+                    $connection = new Connection();
+
+                echo '</div>';
+
+            } else {
+
+              echo '<a href="login.php" class="flex">
+                        <p class="mx-10 p-2 rounded-lg">Se connecter / s\'inscrire pour ajouter ce titre a une liste</p>
+                    </a>
+                    ';
+            }
+
+            ?>
 
         </div>
     </div>

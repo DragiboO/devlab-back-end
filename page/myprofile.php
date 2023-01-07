@@ -104,8 +104,12 @@ if ($_POST) {
 
         $arrayL = $connection->queryAlbum($_SESSION['user_id'], 0);
 
-        foreach ($arrayL as $list) {
-            echo '
+        if ($arrayL === null) {
+            echo '';
+        } else {
+
+            foreach ($arrayL as $list) {
+                echo '
                     <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
@@ -113,6 +117,7 @@ if ($_POST) {
                         </div>
                     </a>
                     ';
+            }
         }
 
         ?>

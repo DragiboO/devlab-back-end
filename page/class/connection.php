@@ -186,19 +186,22 @@ class Connection
             $result = $this->pdo->query($query);
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($statement as $album) {
-                $objectAlbum = new Album(
-                    $album["name"],
-                    $album["is_public"],
-                    0,
-                    0,
-                    $album["owner_id"]
-                );
-                $objectAlbum->id = $album["id"];
+            if ($statement === []) {
+                return null;
+            } else {
+                foreach ($statement as $album) {
+                    $objectAlbum = new Album(
+                        $album["name"],
+                        $album["is_public"],
+                        0,
+                        0,
+                        $album["owner_id"]
+                    );
+                    $objectAlbum->id = $album["id"];
 
-                $list[] = $objectAlbum;
+                    $list[] = $objectAlbum;
+                }
             }
-
             return $list;
         }
 
@@ -245,5 +248,38 @@ class Connection
         }
 
         return "";
+    }
+
+    public function authorizedUser($user_id, $album_id): bool
+    {
+        $query = 'SELECT * from user_album WHERE user_id = ' . $user_id . ' AND album_id = ' . $album_id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function checkIfInAlbum($album_id, $title_id)
+    {
+        $query = 'SELECT * from album_title WHERE album_id = ' . $album_id . ' AND title_id = ' . $title_id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function insertTitle($album_id, $title_id)
+    {
+        $query = 'INSERT INTO album_title (album_id, title_id) VALUES ('. $album_id .','. $title_id .')';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
     }
 }
