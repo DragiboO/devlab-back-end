@@ -247,6 +247,34 @@ class Connection
             return $list;
         }
 
+        if ($type === 3) {
+            $query = 'SELECT album_id, owner_id, name, is_watched, is_wished, is_public, pseudo  FROM user_album
+                      LEFT JOIN album ON user_album.album_id = album.id
+                      LEFT JOIN user ON album.owner_id = user.id
+                      WHERE is_owner = 0 AND user_id = ' . $user_id;
+            $result = $this->pdo->query($query);
+            $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($statement === []) {
+                return null;
+            } else {
+                foreach ($statement as $album) {
+                    $objectAlbum = new Album(
+                        $album["name"],
+                        $album["is_public"],
+                        $album["is_watched"],
+                        $album["is_wished"],
+                        $album["owner_id"]
+                    );
+                    $objectAlbum->id = $album["album_id"];
+                    $objectAlbum->pseudo = $album["pseudo"];
+
+                    $list[] = $objectAlbum;
+                }
+            }
+            return $list;
+        }
+
         return "";
     }
 

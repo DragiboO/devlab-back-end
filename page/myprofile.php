@@ -129,6 +129,24 @@ if ($_POST) {
 
         $connection = new Connection();
 
+        $arrayL = $connection->queryAlbum($_SESSION['user_id'], 3);
+
+        if ($arrayL === null) {
+            echo '';
+        } else {
+
+            foreach ($arrayL as $list) {
+                echo '
+                    <a href="../page/view-album.php?id=' . $list->id . '">
+                        <div class="relative">
+                            <img src="../assets/image/test.webp" alt="test">
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo . '</h2>
+                        </div>
+                    </a>
+                    ';
+            }
+        }
+
         ?>
     </div>
 </main>

@@ -3,6 +3,7 @@
 class Album
 {
     public string $id;
+    public string $pseudo;
 
     public function __construct(
         public string $name,
