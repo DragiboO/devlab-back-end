@@ -16,7 +16,7 @@ session_start();
 <div>
     <nav class="flex justify-between py-1 px-4 text-sm sm:py-2 sm:px-8 text-base xl:py-4 xl:px-10 xl:text-lg relative">
         <div class="flex items-center gap-x-1 sm:gap-x-4 xl:gap-x-10">
-            <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-6 sm:w-10 xl:w-12"></a>
+            <a href="../index.php"><img src="../assets/image/crunchyroule.png" alt="logo" class="w-14 sm:w-10 xl:w-12"></a>
             <ul id="menu-demo2">
                 <li><a href="#" id="naviguer">Naviguer</a>
                     <ul>
@@ -44,12 +44,12 @@ session_start();
                 </li>
             </ul>
         </div>
-        <div class="flex items-center gap-x-2 sm:gap-x-4 xl:gap-x-10">
+        <div class="flex items-center gap-x-4 gap-x-1 gap-y-2 sm:gap-x-4 xl:gap-x-10">
             <a href="search.php"><img src="../assets/image/loupeblanche.png" alt="loupe" class="w-4 sm:w-6 xl:w-10"></a>
             <?php if(isset($_SESSION['user_id'])) {?>
-                <a href="myprofile.php">Mon profil</a>
+                <a href="myprofile.php" class="text-base xl:text-xl">Mon profil</a>
             <?php } else {?>
-                <a href="page/login.php">Se connecter / s'inscrire</a>
+                <a href="login.php" class="text-xs xl:text-xl">Se connecter / s'inscrire</a>
             <?php }
             ?>
         </div>

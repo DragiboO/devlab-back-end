@@ -2,7 +2,7 @@
 <head>
     <title>One page moovie</title>
 </head>
-<main class="ailleurs">
+<main>
     <div class="onepage">
         <?php
             $id = $_GET['id'];
