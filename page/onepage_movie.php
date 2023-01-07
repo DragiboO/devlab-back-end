@@ -59,23 +59,43 @@ if (isset($_GET['add'])) {
                     $arrayL = $connection->queryAlbum($_SESSION['user_id'], 1);
 
                     foreach ($arrayL as $list) {
+
+                        $check = $connection->checkIfInAlbum($list->id, $_GET['id']);
+
                         echo '
                         <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                            <h2 class="text-xl">'. $list->name .'</h2>
-                            <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
+                            <h2 class="text-xl">'. $list->name .'</h2>';
+
+                            if ($check) {
+                                echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                            } else {
+                                echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
+                            }
+
+                        echo '
                         </div>
-                    ';
+                        ';
                     }
 
                     $arrayL = $connection->queryAlbum($_SESSION['user_id'], 2);
 
                     foreach ($arrayL as $list) {
+
+                        $check = $connection->checkIfInAlbum($list->id, $_GET['id']);
+
                         echo '
                         <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                            <h2 class="text-xl">'. $list->name .'</h2>
-                            <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
+                            <h2 class="text-xl">'. $list->name .'</h2>';
+
+                            if ($check) {
+                                echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                            } else {
+                                echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
+                            }
+
+                        echo '
                         </div>
-                    ';
+                        ';
                     }
 
                 echo '</div>';
@@ -90,12 +110,21 @@ if (isset($_GET['add'])) {
                     $arrayL = $connection->queryAlbum($_SESSION['user_id'], 0);
 
                     foreach ($arrayL as $list) {
+                        $check = $connection->checkIfInAlbum($list->id, $_GET['id']);
+
                         echo '
                         <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                            <h2 class="text-xl">'. $list->name .'</h2>
-                            <a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>
+                            <h2 class="text-xl">'. $list->name .'</h2>';
+
+                            if ($check) {
+                                echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                            } else {
+                                echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
+                            }
+
+                        echo '
                         </div>
-                    ';
+                        ';
                     }
 
                 echo '</div>';
