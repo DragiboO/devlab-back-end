@@ -20,11 +20,12 @@ session_start();
         </div>
         <div class="flex items-center gap-x-10">
             <img src="../assets/image/loupeblanche.png" alt="loupe" class="w-10">
-            <?php if(isset($_SESSION['user_id'])) {?>
-                <a href="myprofile.php">Mon profil</a>
-            <?php } else {?>
-            <a href="login.php">Se connecter / s'inscrire</a>
-            <?php }
+            <?php
+            if (isset($_SESSION['user_id'])) {
+                echo '<a href="profile.php?id=' . $_SESSION['user_id'] . '">Mon profil</a>';
+            } else {
+                echo '<a href="login.php">Se connecter / s\'inscrire</a>';
+            }
             ?>
         </div>
     </nav>

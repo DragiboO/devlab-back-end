@@ -135,7 +135,7 @@ class Connection
                     }
                 }
 
-                header('refresh:3;url=myprofile.php');
+                header('refresh:3;url=profile.php?id=' . $userObject->id);
 
                 return 'Bonjour ' . $userObject->pseudo;
             } else {
