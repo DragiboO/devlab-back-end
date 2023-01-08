@@ -239,11 +239,8 @@ if (isset($_GET['add'])) {
     </div>
 </main>
 
-
-
 <footer>
-    <?php require "footer.php";
-    ?>
+    <?php require "footer.php";?>
 </footer>
 <script src="../assets/js/one_page_movie.js"></script>
 </body>

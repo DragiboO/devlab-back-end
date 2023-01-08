@@ -57,7 +57,7 @@ if ($_POST) {
 
 ?>
 
-<main>
+<main class="mb-10">
 
     <?php
     if (isset($_SESSION['user_id'])) {
@@ -108,28 +108,34 @@ if ($_POST) {
 
         $arrayL = $connection->queryAlbum($profileId, 1);
 
-        foreach ($arrayL as $list) {
-            echo '
-                    <a href="../page/view-album.php?id='. $list->id .'">
+        if ($arrayL !== null) {
+
+            foreach ($arrayL as $list) {
+                echo '
+                    <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $list->name .'</h2>
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
                     </a>
                     ';
+            }
         }
 
         $arrayL = $connection->queryAlbum($profileId, 2);
 
-        foreach ($arrayL as $list) {
-            echo '
-                    <a href="../page/view-album.php?id='. $list->id .'">
+        if ($arrayL !== null) {
+
+            foreach ($arrayL as $list) {
+                echo '
+                    <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">'. $list->name .'</h2>
+                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
                     </a>
                     ';
+            }
         }
 
         ?>
@@ -227,6 +233,8 @@ if ($_POST) {
         ?>
     </div>
 </main>
+<footer>
 <?php require "footer.php"?>
+</footer>
 </body>
 </html>

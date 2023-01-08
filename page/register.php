@@ -1,34 +1,23 @@
-<?php
-session_start();
-?>
-
-<!doctype html>
-<html lang="en">
+<?php require_once 'header.php';?>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
-    <link rel="stylesheet" href="../assets/main.css">
 </head>
-<body>
 
-    <main>
-            <div class="content h-[100vh] flex justify-start items-center flex-col gap-y-2">
-                <section class="w-[500px] h-auto text-lg text-center mt-[15vh]">
-                    <form method="POST" class="justify-center flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
+<main>
+    <div class="content h-[90vh] flex justify-center items-center flex-col gap-y-2">
+        <section class="w-[500px] h-auto text-lg text-center">
+            <form method="POST" class="justify-center flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
 
-                        <input type="email" name="email" placeholder="email" required class="rounded-lg p-2 text-black">
-                        <input type="password" name="password1" placeholder="password" required class="rounded-lg p-2 text-black">
-                        <input type="password" name="password2" placeholder="retype password" required class="rounded-lg p-2 text-black">
-                        <input type="text" name="pseudo" placeholder="pseudo" required class="rounded-lg p-2 text-black">
+                <input type="email" name="email" placeholder="email" required class="rounded-lg p-2 text-black">
+                <input type="password" name="password1" placeholder="password" required class="rounded-lg p-2 text-black">
+                <input type="password" name="password2" placeholder="retype password" required class="rounded-lg p-2 text-black">
+                <input type="text" name="pseudo" placeholder="pseudo" required class="rounded-lg p-2 text-black">
 
-                        <input type="submit" value="Register">
-                    </form>
-                </section>
+                <input type="submit" value="Register">
+            </form>
+        </section>
 
-
+        <div class="h-12 text-center">
         <?php
         require_once './class/user.php';
         require_once './class/connection.php';
@@ -85,7 +74,13 @@ session_start();
             }
         }
         ?>
-            </div>
-    </main>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <?php require "footer.php";?>
+</footer>
+
 </body>
 </html>

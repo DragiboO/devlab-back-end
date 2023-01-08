@@ -1,20 +1,10 @@
-<?php
-session_start();
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
+<?php require_once 'header.php';?>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../assets/main.css">
 </head>
-<body>
 
-<main class="content h-[100vh] flex justify-start items-center flex-col gap-y-2">
-    <div class="w-[500px] h-auto text-lg text-center mt-[30vh]">
+<main class="content h-[90vh] flex justify-center items-center flex-col gap-y-2">
+    <div class="w-[500px] h-auto text-lg text-center">
 
         <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
                 <input type="pseudo" name="pseudo" placeholder="pseudo" class="rounded-lg p-2 text-black">
@@ -23,30 +13,33 @@ session_start();
             </form>
             <a href="register.php">Or Register</a>
     </div>
+    <p class="h-4">
+    <?php
+
+    require_once './class/user.php';
+    require_once './class/connection.php';
+
+    if ($_POST) {
+        $user = new User(
+            '',
+            $_POST['password'],
+            '',
+            $_POST['pseudo'],
+        );
+
+        $connection = new Connection();
+
+        $result = $connection->connection($user);
+
+        echo $result;
+    }
+    ?>
+    </p>
 </main>
 
-<?php
-
-require_once './class/user.php';
-require_once './class/connection.php';
-
-if ($_POST) {
-    $user = new User(
-        '',
-        $_POST['password'],
-        '',
-        $_POST['pseudo'],
-    );
-
-    $connection = new Connection();
-
-    $result = $connection->connection($user);
-
-    echo $result;
-}
-
-
-?>
+<footer>
+    <?php require "footer.php";?>
+</footer>
 
 </body>
 </html>

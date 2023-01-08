@@ -31,7 +31,7 @@ class Connection
         ]);
     }
 
-    public function uniqueMail($email)
+    public function uniqueMail($email): bool
     {
         $query = 'SELECT email FROM user WHERE email ="' . $email . '"';
 
@@ -44,7 +44,7 @@ class Connection
         }
     }
 
-    public function uniquePseudo($pseudo)
+    public function uniquePseudo($pseudo): bool
     {
         $query = 'SELECT pseudo FROM user WHERE pseudo ="' . $pseudo . '"';
 
@@ -57,7 +57,7 @@ class Connection
         }
     }
 
-    public function tokenExist($token)
+    public function tokenExist($token): bool
     {
         $query = 'SELECT token FROM user WHERE token ="' . $token . '"';
 
@@ -128,14 +128,13 @@ class Connection
                     $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
                     foreach ($statement as $id) {
-                        echo $id['id'];
                         $query = 'INSERT INTO user_album (user_id, album_id, is_owner) VALUES (' . $userObject->id . ', ' . $id['id'] . ', 1)';
                         $statement = $this->pdo->prepare($query);
                         $statement->execute();
                     }
                 }
 
-                header('refresh:3;url=profile.php?id=' . $userObject->id);
+                header('refresh:2;url=profile.php?id=' . $userObject->id);
 
                 return 'Bonjour ' . $userObject->pseudo;
             } else {
@@ -210,19 +209,22 @@ class Connection
             $result = $this->pdo->query($query);
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($statement as $album) {
-                $objectAlbum = new Album(
-                    $album["name"],
-                    $album["is_public"],
-                    1,
-                    0,
-                    $album["owner_id"]
-                );
-                $objectAlbum->id = $album["id"];
+            if ($statement === []) {
+                return null;
+            } else {
+                foreach ($statement as $album) {
+                    $objectAlbum = new Album(
+                        $album["name"],
+                        $album["is_public"],
+                        1,
+                        0,
+                        $album["owner_id"]
+                    );
+                    $objectAlbum->id = $album["id"];
 
-                $list[] = $objectAlbum;
+                    $list[] = $objectAlbum;
+                }
             }
-
             return $list;
         }
 
@@ -231,19 +233,22 @@ class Connection
             $result = $this->pdo->query($query);
             $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($statement as $album) {
-                $objectAlbum = new Album(
-                    $album["name"],
-                    $album["is_public"],
-                    0,
-                    1,
-                    $album["owner_id"]
-                );
-                $objectAlbum->id = $album["id"];
+            if ($statement === []) {
+                return null;
+            } else {
+                foreach ($statement as $album) {
+                    $objectAlbum = new Album(
+                        $album["name"],
+                        $album["is_public"],
+                        0,
+                        1,
+                        $album["owner_id"]
+                    );
+                    $objectAlbum->id = $album["id"];
 
-                $list[] = $objectAlbum;
+                    $list[] = $objectAlbum;
+                }
             }
-
             return $list;
         }
 
