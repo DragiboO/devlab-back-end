@@ -3,6 +3,10 @@ require_once './class/movie.php';
 require_once './class/connection.php';
 require_once './class/user.php';
 
+if (!isset($_GET['id'])) {
+    header('Location: ../index.php');
+}
+
 $id = $_GET['id'];
 
 if (isset($_GET['add'])) {
@@ -11,6 +15,10 @@ if (isset($_GET['add'])) {
 
 $movie = new Movie();
 $data = $movie->getMovie($id);
+
+if ($data === null) {
+    header('Location: ../index.php');
+}
 ?>
 
 <head>
