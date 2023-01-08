@@ -310,4 +310,25 @@ class Connection
         $statement = $this->pdo->prepare($query);
         $statement->execute();
     }
+
+    public function userExist($id): bool
+    {
+        $query = 'SELECT id FROM user WHERE id = ' . $id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function getPseudo($id)
+    {
+        $query = 'SELECT pseudo FROM user WHERE id = ' . $id;
+        $result = $this->pdo->query($query);
+        $pseudo = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $pseudo[0]['pseudo'];
+    }
 }
