@@ -59,13 +59,19 @@ if ($_POST) {
 
 <main class="mb-10">
 
+    <div class="flex flex-row text-xs gap-x-2 mx-2 mt-2 sm:text-sm sm:w-[50%] sm:mx-10 sm:gap-x-6 sm:mt-6 lg:text-lg lg:mx-14 lg:gap-x-10 lg:px-8 xl:gap-x-10 bg-black rounded-lg xl:mx-40 xl:w-[35%] p-4 xl:px-10">
+        <h2>User1234 veut vous partager son album.</h2>
+        <img src="../assets/image/accepter.png" alt="accepter" class="w-4">
+        <img src="../assets/image/refuser.png" alt="refuser" class="w-4">
+    </div>
+
     <?php
     if (isset($_SESSION['user_id'])) {
         if ($_SESSION['user_id'] === $profileId) {
             echo '
         <div class="flex justify-end px-40 py-8">
             <div>
-                <a href="../page/disconnect.php" class="text-xl">Se déconnecter</a>
+                <a href="disconnect.php" class="text-sm xl:text-xl border-b-2 border-orange-500">Se déconnecter</a>
             </div>
         </div>
         ';

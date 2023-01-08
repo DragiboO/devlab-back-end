@@ -6,7 +6,7 @@ module.exports = {
   content: [
       "./**/*.php",
       "./page/**/*.php",
-      "./assets/js/**/*.js"
+      "./assets/js/**/*.js",
   ],
   theme: {
     extend: {},
