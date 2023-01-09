@@ -5,7 +5,7 @@ require_once './class/user.php';
 
 require "header.php";
 ?>
-<main>
+<main class="relative">
 <div class="flex justify-between items-center px-4 sm:px-10 lg:px-16 xl:px-24 my-10">
     <div class="flex items-center gap-x-10">
         <?php
@@ -110,9 +110,9 @@ if ($arrayTitle !== 'vide') {
 
         echo '
     <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <a href="onepage_movie.php?id=' . $title->id . '"><img src="https://image.tmdb.org/t/p/original' . $data["poster_path"] .'" class="w-14"></a>
+        <a href="onepage-movie.php?id=' . $title->id . '"><img src="https://image.tmdb.org/t/p/original' . $data["poster_path"] .'" class="w-14"></a>
         <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <a href="onepage_movie.php?id=' . $title->id . '"><h2>' . $data["title"] . '</h2></a>
+            <a href="onepage-movie.php?id=' . $title->id . '"><h2>' . $data["title"] . '</h2></a>
             <h2>' . $data["runtime"].' min</h2>
             <p>Retirer de l\'album</p>
         </div>

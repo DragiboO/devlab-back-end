@@ -61,8 +61,7 @@ session_start();
             <div></div>
             <div class="flex flex-col gap-y-2 text-center sm:text-xl text-base xl:text-2xl">
                 <h2>Le Chat Potté 2</h2>
-                <button class="text-xs sm:text-sm bg-orange-500 p-1.5 rounded">Lecture</button>
-                <button class="text-xs sm:text-sm bg-orange-500 p-1.5 rounded">Plus d'info</button>
+                <a href="page/onepage-movie.php?id=315162" class="text-xs sm:text-sm bg-orange-500 p-1.5 rounded">Plus d'info</a>
             </div>
         </div>
 

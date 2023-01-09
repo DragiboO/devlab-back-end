@@ -34,7 +34,7 @@
                         let result = document.createElement("div");
                         result.classList += "relative"
                         let myLink = "single.php?id="+movie[i].id
-                        result.innerHTML += `<a href="../page/onepage_movie.php?id=${movie[i].id}"><img src="${"https://image.tmdb.org/t/p/original" + movie[i].poster_path}" alt="affiche_du_film" class="rounded-3xl w-full"></a>`
+                        result.innerHTML += `<a href="../page/onepage-movie.php?id=${movie[i].id}"><img src="${"https://image.tmdb.org/t/p/original" + movie[i].poster_path}" alt="affiche_du_film" class="rounded-3xl w-full"></a>`
                         result.innerHTML += `<p class="p-2 text-base absolute left-0 bottom-0 bg-orange-500 w-full rounded-b-3xl">${movie[i].title}</p>`
                         propositions.appendChild(result);
                     }

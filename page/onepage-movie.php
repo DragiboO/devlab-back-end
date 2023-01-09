@@ -240,6 +240,6 @@ if (isset($_GET['add'])) {
 </main>
 
 <?php require "footer.php";?>
-<script src="../assets/js/one_page_movie.js"></script>
+<script src="../assets/js/onepage-movie.js"></script>
 </body>
 </html>
