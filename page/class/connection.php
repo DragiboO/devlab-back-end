@@ -154,7 +154,7 @@ class Connection
     public function createAlbum(Album $album): bool
     {
         $query = 'INSERT INTO album (name, is_public, is_watched, is_wished, owner_id)
-                    VALUES (:name, :isPublic, :isWatched, :isWished, :ownerId)';
+                  VALUES (:name, :isPublic, :isWatched, :isWished, :ownerId)';
 
         $statement = $this->pdo->prepare($query);
 
@@ -280,6 +280,33 @@ class Connection
             return $list;
         }
 
+        if ($type === 4) {
+            $query = 'SELECT album.id, owner_id, name, is_watched, is_wished, is_public, pseudo FROM album
+                      LEFT JOIN user ON user.id = album.owner_id
+                      WHERE album.id = ' . $user_id;
+            $result = $this->pdo->query($query);
+            $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($statement === []) {
+                return null;
+            } else {
+                foreach ($statement as $album) {
+                    $objectAlbum = new Album(
+                        $album["name"],
+                        $album["is_public"],
+                        $album["is_watched"],
+                        $album["is_wished"],
+                        $album["owner_id"]
+                    );
+                    $objectAlbum->id = $album["id"];
+                    $objectAlbum->pseudo = $album["pseudo"];
+
+                    $list[] = $objectAlbum;
+                }
+            }
+            return $list[0];
+        }
+
         return "";
     }
 
@@ -336,4 +363,63 @@ class Connection
         $pseudo = $result->fetchAll(PDO::FETCH_ASSOC);
         return $pseudo[0]['pseudo'];
     }
+
+    public function albumExist($id): bool
+    {
+        $query = 'SELECT id FROM album WHERE id = ' . $id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function countLike($id)
+    {
+        $query = 'SELECT COUNT(album_id) FROM album_like
+                  WHERE album_id = ' . $id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return $statement[0]['COUNT(album_id)'];
+    }
+
+    public function like($user_id, $album_id)
+    {
+        $query = 'SELECT * FROM album_like
+                  WHERE album_id = ' . $album_id . ' AND user_id = ' . $user_id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            $query = 'INSERT INTO album_like (album_id, user_id)
+                      VALUES ('. $album_id .','. $user_id .')';
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
+
+        } else {
+            $query = 'DELETE FROM album_like
+                      WHERE  album_id = '. $album_id .' AND user_id = '. $user_id;
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
+        }
+    }
+
+    public function isLiked($user_id, $album_id): bool
+    {
+        $query = 'SELECT * FROM album_like
+                  WHERE album_id = ' . $album_id . ' AND user_id = ' . $user_id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

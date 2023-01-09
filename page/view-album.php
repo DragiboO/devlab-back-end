@@ -1,8 +1,84 @@
 <?php
+require_once './class/album.php';
+require_once './class/connection.php';
+require_once './class/user.php';
+
 require "header.php";
 ?>
 
-<h2 class="xl:text-xl text-center py-4">Nom de l'album</h2>
+<div class="flex justify-between items-center px-4 sm:px-10 lg:px-16 xl:px-24 my-10">
+    <div class="flex items-center gap-x-10">
+        <?php
+        if (!isset($_GET['id'])) {
+            header('Location: ../index.php');
+        } else {
+
+            if ($_GET['id'] === '') {
+                header('Location: ../index.php');
+            }
+
+            $connection = new Connection();
+            $albumExist = $connection->albumExist($_GET['id']);
+
+            if ($albumExist) {
+
+                $album = $connection->queryAlbum($_GET['id'] , 4);
+
+                if ($album->isPublic === '1') {
+
+                    if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $album->ownerId) {
+                        echo  '<h2 class="xl:text-2xl text-center py-4">'. $album->name . ' de ' . $album->pseudo .'</h2>';
+                    } else {
+                        echo '<h2 class="xl:text-2xl text-center py-4">'. $album->name .'</h2>';
+                    }
+                } else {
+
+                    if (!isset($_SESSION['user_id'])) {
+                        header('Location: ../index.php');
+                    } else {
+
+                        $authorized =$connection->authorizedUser($_SESSION['user_id'], $_GET['id']);
+
+                        if ($authorized) {
+
+                            if ($_SESSION['user_id'] != $album->ownerId) {
+                                echo  '<h2 class="xl:text-2xl text-center py-4">'. $album->name . ' de ' . $album->pseudo .'</h2>';
+                            } else {
+                                echo '<h2 class="xl:text-2xl text-center py-4">'. $album->name .'</h2>';
+                            }
+
+                        } else {
+                            header('Location: ../index.php');
+                        }
+                    }
+                }
+
+            } else {
+                header('Location: ../index.php');
+            }
+        }
+
+
+
+        $connection = new Connection();
+        echo '<p>' . $connection->countLike($_GET['id']) . ' Likes</p>';
+
+        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] !== $album->ownerId) {
+
+            if ($connection->isLiked($_SESSION['user_id'], $_GET['id'])) {
+                echo '<a href="add-like.php?album=' . $_GET['id'] . '"><img src="../assets/image/heart.webp" alt="" class="w-8 h-8"></a>';
+            } else {
+                echo '<a href="add-like.php?album=' . $_GET['id'] . '"><img src="../assets/image/empty-heart.webp" alt="" class="w-8 h-8"></a>';
+            }
+        }
+        ?>
+
+    </div>
+
+    <div class="flex items-center gap-x-10">
+        <button>Ajouter quelqu'un</button>
+    </div>
+</div>
 
 <div class="flex flex-row text-sm px-4 gap-x-14 pb-2 sm:text-lg sm:gap-x-24 sm:px-10 lg:px-16 lg:text-xl lg:gap-x-28 xl:text-xl xl:px-24 xl:gap-x-32 xl:pb-2 border-b-[1px] border-gray-700">
     <h2>Affiche</h2>
