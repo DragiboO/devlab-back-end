@@ -4,6 +4,7 @@ require_once 'user.php';
 require_once 'config.php';
 require_once 'album.php';
 require_once 'movie.php';
+require_once 'invitation.php';
 
 class Connection
 {
@@ -450,7 +451,7 @@ class Connection
         }
     }
 
-    public function getUserString($str)
+    public function getUserString($str): string
     {
         $query = 'SELECT pseudo, id FROM user 
                   WHERE pseudo LIKE "%' . $str . '%"';
@@ -458,6 +459,68 @@ class Connection
         $statement = $result->fetchAll(PDO::FETCH_ASSOC);
 
         return json_encode($statement);
+    }
+
+    public function isAlreadyInvited($album_id, $user_id_request): bool
+    {
+        $query = 'SELECT album_id, user_id_request FROM pending_request 
+                  WHERE album_id = ' . $album_id . ' AND user_id_request = ' . $user_id_request;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function createInvitation($owner_id, $album_id, $user_id_request)
+    {
+        $query = 'INSERT INTO pending_request (user_id_owner, album_id, user_id_request) VALUES ('. $owner_id .','. $album_id .','. $user_id_request .')';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
+    public function getInvitationRequest($user_id)
+    {
+        $query = 'SELECT user_id_owner, album_id, user_id_request, name, pseudo FROM pending_request
+                  LEFT JOIN album ON album.id = pending_request.album_id
+                  LEFT JOIN user ON user.id = pending_request.user_id_owner
+                  WHERE user_id_request = ' . $user_id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement !== []) {
+
+            foreach ($statement as $invitation) {
+                $invitationObject = new Invitation(
+                    $invitation['user_id_owner'],
+                    $invitation['album_id'],
+                    $invitation['user_id_request'],
+                    $invitation['name'],
+                    $invitation['pseudo']
+                );
+
+                $list[] =$invitationObject;
+            }
+            return $list;
+        }
+    }
+
+    public function removeRequest($album_id, $user_id)
+    {
+        $query = 'DELETE FROM pending_request
+                  WHERE  album_id = '. $album_id .' AND user_id_request = '. $user_id;
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
+    public function addUserAlbum($album_id, $user_id)
+    {
+        $query = 'INSERT INTO user_album (user_id, album_id, is_owner) VALUES (' . $user_id . ', ' . $album_id . ', 0)';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
     }
 
 }

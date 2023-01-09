@@ -1,10 +1,7 @@
 moovie = document.querySelector(".afficher")
 url = "https://api.themoviedb.org/3/movie/popular?api_key=f213e718db2b8476f73cd84bb74f1963&language=fr-FR"
 
-console.log(url)
-
 fetch(url).then((response) => response.json()).then(function(data) {
-    console.log(data.results)
 
     data.results.forEach(e => {
 

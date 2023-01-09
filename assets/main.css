@@ -674,12 +674,12 @@ video {
   height: 33vh;
 }
 
-.h-12 {
-  height: 3rem;
-}
-
 .h-8 {
   height: 2rem;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .min-h-\[60vh\] {
@@ -785,18 +785,23 @@ video {
   row-gap: 1rem;
 }
 
-.gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-}
-
 .gap-x-10 {
   -moz-column-gap: 2.5rem;
        column-gap: 2.5rem;
 }
 
+.gap-x-8 {
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
 .gap-y-6 {
   row-gap: 1.5rem;
+}
+
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 
 .gap-x-14 {
@@ -1243,8 +1248,8 @@ body {
     width: 1.5rem;
   }
 
-  .sm\:w-\[50\%\] {
-    width: 50%;
+  .sm\:w-\[75\%\] {
+    width: 75%;
   }
 
   .sm\:grid-cols-2 {
@@ -1265,11 +1270,6 @@ body {
     row-gap: 3rem;
   }
 
-  .sm\:gap-x-6 {
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
-  }
-
   .sm\:gap-x-8 {
     -moz-column-gap: 2rem;
          column-gap: 2rem;
@@ -1282,6 +1282,11 @@ body {
   .sm\:gap-x-24 {
     -moz-column-gap: 6rem;
          column-gap: 6rem;
+  }
+
+  .sm\:gap-x-6 {
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
 
   .sm\:py-2 {
@@ -1332,6 +1337,10 @@ body {
 
   .lg\:mb-10 {
     margin-bottom: 2.5rem;
+  }
+
+  .lg\:w-\[60\%\] {
+    width: 60%;
   }
 
   .lg\:grid-cols-3 {
@@ -1466,8 +1475,8 @@ body {
     width: 2.5rem;
   }
 
-  .xl\:w-\[35\%\] {
-    width: 35%;
+  .xl\:w-\[40\%\] {
+    width: 40%;
   }
 
   .xl\:grid-cols-4 {
