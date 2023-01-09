@@ -95,7 +95,7 @@ if ($_POST) {
     if (isset($_SESSION['user_id'])) {
         if ($_SESSION['user_id'] === $profileId) {
             echo '
-            <div class="flex justify-end px-40 py-8">
+            <div class="flex justify-end px-10 py-4 xl:px-40 xl:py-8">
                 <div>
                     <a href="disconnect.php" class="text-sm xl:text-xl border-b-2 border-orange-500">Se déconnecter</a>
                 </div>
@@ -105,7 +105,7 @@ if ($_POST) {
     }
     ?>
 
-    <h2 class="px-40 py-8 text-3xl">
+    <h2 class="px-10 py-2 text-lg xl:px-40 xl:py-8 xl:text-3xl">
         <?php
         if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $profileId) {
             echo 'Profil de ' . $profilePseudo;
@@ -119,7 +119,7 @@ if ($_POST) {
         if (isset($_SESSION['user_id'])) {
             if ($_SESSION['user_id'] === $profileId) {
                 echo '
-            <form method="POST" class="px-40 py-8 text-2xl">
+            <form method="POST" class="text-sm px-10 py-2 xl:px-40 xl:py-8 xl:text-2xl">
                 <input type="text" name="album_name" placeholder="nom de la liste" class="text-black py-1 pl-2">
                 <select name="visibility" class="text-black">
                     <option value="1" class="text-black">Public</option>
@@ -132,8 +132,8 @@ if ($_POST) {
         }
     ?>
 
-    <hr class="mx-40 mb-8">
-    <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+    <hr class="mx-10 mb-2 text-sm xl:mx-40 xl:text-2xl">
+    <div class="grid grid-cols-1 gap-y-6 px-10 mb-6 sm:grid-cols-2 sm:px-14 sm:gap-y-8 sm:gap-x-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:px-40 xl:mb-8 xl:gap-y-10">
         <?php
 
         $connection = new Connection();
@@ -147,7 +147,7 @@ if ($_POST) {
                     <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
+                            <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
                     </a>
                     ';
@@ -163,7 +163,7 @@ if ($_POST) {
                     <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
+                            <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
                     </a>
                     ';
@@ -172,7 +172,7 @@ if ($_POST) {
 
         ?>
     </div>
-    <h2 class="mx-40 text-2xl">
+    <h2 class="mx-10 text-sm xl:mx-40 xl:text-2xl">
         <?php
         if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $profileId) {
             echo 'Créations de ' . $profilePseudo;
@@ -181,8 +181,8 @@ if ($_POST) {
         }
         ?>
     </h2>
-    <hr class="mx-40 mb-8">
-    <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+    <hr class="mx-10 mb-2 xl:mx-40 xl:mb-8">
+    <div class="grid grid-cols-1 gap-y-6 px-10 mb-6 sm:grid-cols-2 sm:px-14 sm:gap-y-8 sm:gap-x-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:px-40 xl:mb-8 xl:gap-y-10">
         <?php
 
         $connection = new Connection();
@@ -198,7 +198,7 @@ if ($_POST) {
                         <a href="../page/view-album.php?id=' . $list->id . '">
                             <div class="relative">
                                 <img src="../assets/image/test.webp" alt="test">
-                                <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
+                                <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                             </div>
                         </a>
                         ';
@@ -208,7 +208,7 @@ if ($_POST) {
                     <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
+                            <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
                     </a>
                     ';
@@ -218,7 +218,7 @@ if ($_POST) {
 
         ?>
     </div>
-    <h2 class="mx-40 text-2xl">
+    <h2 class="mx-10 text-sm xl:mx-40 xl:text-2xl">
         <?php
         if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $profileId) {
             echo 'Listes partagés avec ' . $profilePseudo;
@@ -227,8 +227,8 @@ if ($_POST) {
         }
         ?>
     </h2>
-    <hr class="mx-40 mb-8">
-    <div class="grid grid-cols-4 gap-x-10 px-40 mb-8 gap-y-10">
+    <hr class="mx-10 mb-2 text-sm xl:mx-40 xl:text-2xl">
+    <div class="grid grid-cols-1 gap-y-6 px-10 mb-6 sm:grid-cols-2 sm:px-14 sm:gap-y-8 sm:gap-x-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:px-40 xl:mb-8 xl:gap-y-10">
         <?php
 
         $connection = new Connection();
@@ -244,7 +244,7 @@ if ($_POST) {
                         <a href="../page/view-album.php?id=' . $list->id . '">
                             <div class="relative">
                                 <img src="../assets/image/test.webp" alt="test">
-                                <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo .'</h2>
+                                <h2 class="p-2 text-xs :sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo .'</h2>
                             </div>
                         </a>
                         ';
@@ -254,7 +254,7 @@ if ($_POST) {
                     <a href="../page/view-album.php?id=' . $list->id . '">
                         <div class="relative">
                             <img src="../assets/image/test.webp" alt="test">
-                            <h2 class="p-2 text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo .'</h2>
+                            <h2 class="p-2 text-xs :sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo .'</h2>
                         </div>
                     </a>
                     ';

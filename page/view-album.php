@@ -11,19 +11,19 @@ require "header.php";
         $connection = new Connection();
         $ownerId = $connection->getOwner($_GET['id']);
 
-        if ($ownerId === $_SESSION['user_id']) {
+        if ($ownerId == $_SESSION['user_id']) {
 
 
 
-            echo '<div class="menu_add_someone absolute h-full w-full flex hidden">
-                    <div class="sub_menu_add_someone w-full bg-black/75 m-16 rounded-xl p-16">
-                        <div class="flex justify-between">
+            echo '<section class="menu_add_someone absolute h-full w-full flex hidden justify-center">
+                    <div class="sub_menu_add_someone w-[90%] xl:w-full bg-black/75 xl:m-16 rounded-xl p-8 xl:p-16">
+                        <div class="flex flex-col xl:justify-between">
                             <input class="input text-black px-2" onkeyup="find_user()" type="text" name="input" placeholder="Pseudo">
                             <button class="close_menu">Fermer le menu</button>
                         </div>
                         <div class="user_research w-full mt-4 flex flex-wrap items-center gap-x-2"></div>
                     </div>
-                </div>
+                </section>
             ';
 
             echo '<script>var album_id_js = ' . $_GET['id'] . '</script>';
@@ -33,8 +33,8 @@ require "header.php";
     }
     ?>
 
-    <div class="flex justify-between items-center px-4 sm:px-10 lg:px-16 xl:px-24 my-10">
-        <div class="flex items-center gap-x-10">
+    <div class="flex flex-col xl:flex-row px-10 xl:justify-between xl:items-center px-4 sm:px-10 lg:px-16 xl:px-24 my-10">
+        <div class="flex flex-col xl:flex-row xl:items-center gap-x-10">
             <?php
             if (!isset($_GET['id'])) {
                 header('Location: ../index.php');
@@ -54,9 +54,9 @@ require "header.php";
                     if ($album->isPublic === '1') {
 
                         if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $album->ownerId) {
-                            echo  '<h2 class="xl:text-2xl text-center py-4">'. $album->name . ' de ' . $album->pseudo .'</h2>';
+                            echo  '<h2 class="xl:text-2xlxl: text-center xl:py-4">'. $album->name . ' de ' . $album->pseudo .'</h2>';
                         } else {
-                            echo '<h2 class="xl:text-2xl text-center py-4">'. $album->name .'</h2>';
+                            echo '<h2 class="xl:text-2xl xl:text-center xl:py-4">'. $album->name .'</h2>';
                         }
                     } else {
 
@@ -109,7 +109,7 @@ require "header.php";
                 $connection = new Connection();
                 $ownerId = $connection->getOwner($_GET['id']);
 
-                if ($ownerId === $_SESSION['user_id']) {
+                if ($ownerId == $_SESSION['user_id']) {
                     echo '<button class="btn_add_someone">Ajouter quelqu\'un</button>';
                 }
             }

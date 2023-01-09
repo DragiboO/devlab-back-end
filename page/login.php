@@ -4,9 +4,9 @@
 </head>
 
 <main class="content h-[90vh] flex justify-center items-center flex-col gap-y-2">
-    <div class="w-[500px] h-auto text-lg text-center">
+    <div class="w-[270px] text-xs sm:text-sm sm:w-[350px] lg:text-lg lg:w-[425px] xl:w-[500px] h-auto xl:text-lg text-center">
 
-        <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-10 mb-4">
+        <form method="POST" class="flex flex-col items-center bg-orange-500 rounded-3xl p-10 gap-y-4 sm:gap-y-6 xl:gap-y-10 mb-4 lg:gap-y-8">
                 <input type="pseudo" name="pseudo" placeholder="pseudo" class="rounded-lg p-2 text-black">
                 <input type="password" name="password" placeholder="password" class="rounded-lg p-2 text-black">
                 <input type="submit" value="Login" name="login">

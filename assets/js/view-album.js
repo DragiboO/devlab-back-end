@@ -36,7 +36,7 @@ function find_user() {
 
                     let user = document.createElement("div");
                     user.classList += "user"
-                    user.innerHTML += `<a href="/page/add-user.php?album=${album_id_js}&user=${users[i].id}" class="bg-orange-500 text-2xl px-2 py-1 rounded">${users[i].pseudo}</a>`
+                    user.innerHTML += `<a href="/page/add-user.php?album=${album_id_js}&user=${users[i].id}" class="bg-orange-500 text-sm sm:text-lg lg:text-xl xl:text-2xl px-2 py-1 rounded">${users[i].pseudo}</a>`
                     user_research.appendChild(user);
                 }
 
