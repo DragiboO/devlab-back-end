@@ -50,7 +50,7 @@ if (isset($_GET['add'])) {
 
 ?>
 
-<main class="ailleurs">
+<main>
     <div class="menu_add absolute w-full h-full z-50 flex items-center justify-center hidden">
         <div class="sub_menu_add no_scroll_bar bg-black/75 w-[95%] h-[90%] rounded-3xl mt-[15vh] overflow-y-scroll p-10 flex gap-x-4">
 
