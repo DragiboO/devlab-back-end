@@ -11,10 +11,7 @@ require "header.php";
         $connection = new Connection();
         $ownerId = $connection->getOwner($_GET['id']);
 
-        if ($ownerId === $_SESSION['user_id']) {
-
-
-
+        if ($ownerId == $_SESSION['user_id']) {
             echo '<div class="menu_add_someone absolute h-full w-full flex hidden">
                     <div class="sub_menu_add_someone w-full bg-black/75 m-16 rounded-xl p-16">
                         <div class="flex justify-between">
@@ -109,7 +106,7 @@ require "header.php";
                 $connection = new Connection();
                 $ownerId = $connection->getOwner($_GET['id']);
 
-                if ($ownerId === $_SESSION['user_id']) {
+                if ($ownerId == $_SESSION['user_id']) {
                     echo '<button class="btn_add_someone">Ajouter quelqu\'un</button>';
                 }
             }
