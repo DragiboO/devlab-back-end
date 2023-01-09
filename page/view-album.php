@@ -13,8 +13,6 @@ require "header.php";
 
         if ($ownerId == $_SESSION['user_id']) {
 
-
-
             echo '<section class="menu_add_someone absolute h-full w-full flex hidden justify-center">
                     <div class="sub_menu_add_someone w-[90%] xl:w-full bg-black/75 xl:m-16 rounded-xl p-8 xl:p-16">
                         <div class="flex flex-col xl:justify-between">

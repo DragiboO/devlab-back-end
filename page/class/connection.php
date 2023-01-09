@@ -523,4 +523,22 @@ class Connection
         $statement->execute();
     }
 
+    public function queryLastTitle($album_id)
+    {
+        $query = 'SELECT title_id FROM album_title
+                  WHERE album_id = ' . $album_id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($statement) == 0) {
+            return '../assets/image/test.webp';
+        } else {
+            $title_id = strval($statement[count($statement) - 1]['title_id']);
+            $movie = new Movie();
+            $data = $movie->getMovie($title_id);
+
+            return "https://image.tmdb.org/t/p/original" . $data['backdrop_path'];
+        }
+    }
+
 }

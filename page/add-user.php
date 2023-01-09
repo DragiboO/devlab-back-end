@@ -9,7 +9,7 @@ if (isset($_SESSION['user_id'])) {
     $connection = new Connection();
     $ownerId = $connection->getOwner($_GET['album']);
 
-    if ($ownerId === $_SESSION['user_id']) {
+    if ($ownerId == $_SESSION['user_id']) {
 
         if ($ownerId !== $_GET['user']) {
 

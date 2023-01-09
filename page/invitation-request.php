@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
 
         if ($doInviteExist) {
 
-            if ($_GET['user'] === $_SESSION['user_id']) {
+            if ($_GET['user'] == $_SESSION['user_id']) {
 
                 $connection = new Connection();
                 $connection->removeRequest($_GET['album'], $_GET['user']);
