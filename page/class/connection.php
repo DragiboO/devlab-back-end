@@ -365,6 +365,14 @@ class Connection
         return $pseudo[0]['pseudo'];
     }
 
+    public function getOwner($album_id)
+    {
+        $query = 'SELECT owner_id FROM album WHERE id = ' . $album_id;
+        $result = $this->pdo->query($query);
+        $ownerId = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $ownerId[0]['owner_id'];
+    }
+
     public function albumExist($id): bool
     {
         $query = 'SELECT id FROM album WHERE id = ' . $id;

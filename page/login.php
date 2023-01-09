@@ -37,9 +37,9 @@
     </p>
 </main>
 
-<footer>
-    <?php require "footer.php";?>
-</footer>
+
+<?php require "footer.php";?>
+
 
 </body>
 </html>

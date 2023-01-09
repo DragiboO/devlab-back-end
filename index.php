@@ -13,7 +13,6 @@ session_start();
 </head>
 
 <body>
-<div>
     <nav class="flex justify-between py-1 px-4 text-sm sm:py-2 sm:px-8 text-base xl:py-4 xl:px-10 xl:text-lg relative">
         <div class="flex items-center gap-x-1 sm:gap-x-4 xl:gap-x-10">
             <a href="../index.php"><img src="assets/image/crunchyroule.png" alt="logo" class="w-14 sm:w-10 xl:w-12"></a>
@@ -55,7 +54,6 @@ session_start();
             ?>
         </div>
     </nav>
-</div>
     <main>
 
         <div class="background-moovie flex flex-col justify-end items-center">
@@ -79,12 +77,10 @@ session_start();
     </main>
 
     <footer>
-        <div>
-            <hr class="h-px border-none bg-gray-700 mx-10 xl:mx-40">
-            <div class="text-xs xl:text-xl my-2 mx-10 xl:my-6 xl:mx-40 flex justify-between">
-                <p>© - Théa Blachon / Julien Grenouilleau</p>
-                <a href="https://github.com/DragiboO/devlab-back-end" class="hover:text-orange-500">Github</a>
-            </div>
+        <hr class="h-px border-none bg-gray-700 mx-10 xl:mx-40">
+        <div class="text-xs xl:text-xl my-2 mx-10 xl:my-6 xl:mx-40 flex justify-between">
+            <p>© - Théa Blachon / Julien Grenouilleau</p>
+            <a href="https://github.com/DragiboO/devlab-back-end" class="hover:text-orange-500">Github</a>
         </div>
     </footer>
     <script src="assets/js/api.js"></script>

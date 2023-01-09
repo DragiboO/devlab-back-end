@@ -5,7 +5,7 @@ require_once './class/user.php';
 
 require "header.php";
 ?>
-
+<main>
 <div class="flex justify-between items-center px-4 sm:px-10 lg:px-16 xl:px-24 my-10">
     <div class="flex items-center gap-x-10">
         <?php
@@ -76,7 +76,18 @@ require "header.php";
     </div>
 
     <div class="flex items-center gap-x-10">
-        <button>Ajouter quelqu'un</button>
+
+        <?php
+        if (isset($_SESSION['user_id'])) {
+            $connection = new Connection();
+            $ownerId = $connection->getOwner($_GET['id']);
+
+            if ($ownerId === $_SESSION['user_id']) {
+                echo '<button>Ajouter quelqu\'un</button>';
+            }
+        }
+        ?>
+
     </div>
 </div>
 
@@ -113,6 +124,7 @@ if ($arrayTitle !== 'vide') {
 ?>
 
 </div>
+</main>
 
 <?php
 require "footer.php";
