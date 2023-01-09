@@ -146,7 +146,7 @@ if ($_POST) {
 
                 echo '
                     <a href="../page/view-album.php?id=' . $list->id . '">
-                        <div class="relative">
+                        <div class="relative h-full">
                             <img src="' . $connection->queryLastTitle($list->id) . '" alt="test">
                             <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
@@ -163,7 +163,7 @@ if ($_POST) {
 
                 echo '
                     <a href="../page/view-album.php?id=' . $list->id . '">
-                        <div class="relative">
+                        <div class="relative h-full">
                             <img src="' . $connection->queryLastTitle($list->id) . '" alt="test">
                             <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
@@ -199,7 +199,7 @@ if ($_POST) {
                     if ($list->isPublic === '1') {
                         echo '
                         <a href="../page/view-album.php?id=' . $list->id . '">
-                            <div class="relative">
+                            <div class="relative h-full">
                                 <img src="' . $connection->queryLastTitle($list->id) . '" alt="test">
                                 <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                             </div>
@@ -209,7 +209,7 @@ if ($_POST) {
                 } else {
                     echo '
                     <a href="../page/view-album.php?id=' . $list->id . '">
-                        <div class="relative">
+                        <div class="relative h-full">
                             <img src="' . $connection->queryLastTitle($list->id) . '" alt="test">
                             <h2 class="p-2 text-xs sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . '</h2>
                         </div>
@@ -245,7 +245,7 @@ if ($_POST) {
                     if ($list->isPublic === '1') {
                         echo '
                         <a href="../page/view-album.php?id=' . $list->id . '">
-                            <div class="relative">
+                            <div class="relative h-full">
                                 <img src="' . $connection->queryLastTitle($list->id) . '" alt="test">
                                 <h2 class="p-2 text-xs :sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo .'</h2>
                             </div>
@@ -255,7 +255,7 @@ if ($_POST) {
                 } else {
                     echo '
                     <a href="../page/view-album.php?id=' . $list->id . '">
-                        <div class="relative">
+                        <div class="relative h-full">
                             <img src="' . $connection->queryLastTitle($list->id) . '" alt="test">
                             <h2 class="p-2 text-xs :sm:text-sm lg:text-lg xl:text-xl absolute left-0 bottom-0 bg-orange-500 w-full">' . $list->name . ' de ' . $list->pseudo .'</h2>
                         </div>
