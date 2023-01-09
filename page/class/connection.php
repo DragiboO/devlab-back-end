@@ -3,6 +3,7 @@
 require_once 'user.php';
 require_once 'config.php';
 require_once 'album.php';
+require_once 'movie.php';
 
 class Connection
 {
@@ -419,6 +420,25 @@ class Connection
             return false;
         } else {
             return true;
+        }
+    }
+
+    public function titleInAlbum($id)
+    {
+        $query = 'SELECT title_id FROM album_title
+                  WHERE album_id = ' . $id;
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($statement === []) {
+            return 'vide';
+        } else {
+            foreach ($statement as $title) {
+                $movieObject = new Movie();
+                $movieObject->id = $title['title_id'];
+                $list[] =$movieObject;
+            }
+            return $list;
         }
     }
 

@@ -59,7 +59,7 @@ if (isset($_GET['add'])) {
             if (isset($_SESSION["user_id"])) {
 
                 echo '<div class="w-1/3">';
-                    echo '<h2 class="text-2xl">JSP</h2>';
+                    echo '<h2 class="text-2xl">Liste par defaut</h2>';
                     echo '<hr class="mb-8">';
 
                     $connection = new Connection();
@@ -72,7 +72,7 @@ if (isset($_GET['add'])) {
 
                         echo '
                         <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                            <h2 class="text-xl">'. $list->name .'</h2>';
+                            <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .'</h2></a>';
 
                             if ($check) {
                                 echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
@@ -93,7 +93,7 @@ if (isset($_GET['add'])) {
 
                         echo '
                         <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                            <h2 class="text-xl">'. $list->name .'</h2>';
+                            <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .'</h2></a>';
 
                             if ($check) {
                                 echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
@@ -125,7 +125,7 @@ if (isset($_GET['add'])) {
 
                             echo '
                             <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                                <h2 class="text-xl">'. $list->name .'</h2>';
+                                <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .'</h2></a>';
 
                                 if ($check) {
                                     echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
@@ -160,7 +160,7 @@ if (isset($_GET['add'])) {
 
                             echo '
                             <div class="p-2 bg-orange-500 w-full flex items-center justify-between mb-4 rounded">
-                                <h2 class="text-xl">'. $list->name .' de ' . $list->pseudo . '</h2>';
+                                <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .' de ' . $list->pseudo . '</h2></a>';
 
                                 if ($check) {
                                     echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';

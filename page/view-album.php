@@ -86,71 +86,32 @@ require "header.php";
     <h2>durée</h2>
 </div>
 
-<div class="flex flex-col mb-4">
+<div class="flex flex-col mb-4 min-h-[60vh]">
+<?php
+
+$arrayTitle = ($connection->titleInAlbum($_GET['id']));
+
+if ($arrayTitle !== 'vide') {
+    foreach ($arrayTitle as $title) {
+
+        $movie = new Movie();
+        $data = $movie->getMovie($title->id);
+
+        echo '
     <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
+        <a href="onepage_movie.php?id=' . $title->id . '"><img src="https://image.tmdb.org/t/p/original' . $data["poster_path"] .'" class="w-14"></a>
         <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
+            <a href="onepage_movie.php?id=' . $title->id . '"><h2>' . $data["title"] . '</h2></a>
+            <h2>' . $data["runtime"].' min</h2>
+            <p>Retirer de l\'album</p>
         </div>
     </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 border-b-[1px] border-gray-700 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
-    <div class="flex flex-row items-center gap-x-6 px-4 pb-2 mt-2 sm:px-10 lg:px-16 xl:gap-x-10 xl:px-24 xl:pb-6 xl:mt-6">
-        <img src="../assets/image/avatar.jpg" alt="img_film" class="w-14">
-        <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
-            <h2>Avatar 2 : La voie de l'eau</h2>
-            <h2>190min</h2>
-            <p>Retirer de l'album</p>
-        </div>
-    </div>
+    
+    ';
+    }
+}
+?>
+
 </div>
 
 <?php
