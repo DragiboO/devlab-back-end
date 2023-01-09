@@ -23,12 +23,18 @@ function find_user() {
         axios.get('/page/class/user-research.php?user='+input.value)
 
             .then(function (response) {
-
                 let users = response.data
 
                 user_research.innerHTML = "";
 
-                for (let i = 0; i <= users.length - 1; i++) {
+                let max_research = users.length
+                if (users.length > 50) {
+                    max_research = 50
+                }
+
+                console.log(max_research)
+
+                for (let i = 0; i <= max_research - 1; i++) {
 
                     let user = document.createElement("div");
                     user.classList += "user"
