@@ -450,4 +450,14 @@ class Connection
         }
     }
 
+    public function getUserString($str)
+    {
+        $query = 'SELECT pseudo, id FROM user 
+                  WHERE pseudo LIKE "%' . $str . '%"';
+        $result = $this->pdo->query($query);
+        $statement = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return json_encode($statement);
+    }
+
 }

@@ -6,11 +6,33 @@ require_once './class/user.php';
 require "header.php";
 ?>
 <main class="relative">
-    <div class="absolute h-full w-full flex">
-        <div class="w-full bg-black/75 m-16 rounded-xl p-16">
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        $connection = new Connection();
+        $ownerId = $connection->getOwner($_GET['id']);
 
-        </div>
-    </div>
+        if ($ownerId === $_SESSION['user_id']) {
+
+
+
+            echo '<div class="menu_add_someone absolute h-full w-full flex hidden">
+                    <div class="sub_menu_add_someone w-full bg-black/75 m-16 rounded-xl p-16">
+                        <div class="flex justify-between">
+                            <input class="input text-black px-2" onkeyup="find_user()" type="text" name="input" placeholder="Pseudo">
+                            <button class="close_menu">Fermer le menu</button>
+                        </div>
+                        <div class="user_research w-full mt-4 flex flex-wrap items-center gap-x-2"></div>
+                    </div>
+                </div>
+            ';
+
+            echo '<script>var album_id_js = ' . $_GET['id'] . '</script>';
+            echo '<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>';
+            echo '<script defer src="../assets/js/view-album.js"></script>';
+        }
+    }
+    ?>
+
     <div class="flex justify-between items-center px-4 sm:px-10 lg:px-16 xl:px-24 my-10">
         <div class="flex items-center gap-x-10">
             <?php
@@ -88,7 +110,7 @@ require "header.php";
                 $ownerId = $connection->getOwner($_GET['id']);
 
                 if ($ownerId === $_SESSION['user_id']) {
-                    echo '<button>Ajouter quelqu\'un</button>';
+                    echo '<button class="btn_add_someone">Ajouter quelqu\'un</button>';
                 }
             }
             ?>
@@ -134,5 +156,3 @@ require "header.php";
 <?php
 require "footer.php";
 ?>
-
-<script src="../assets/js/view-album.js"></script>

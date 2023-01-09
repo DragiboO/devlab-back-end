@@ -75,7 +75,7 @@ if (isset($_GET['add'])) {
                             <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .'</h2></a>';
 
                             if ($check) {
-                                echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                                echo '<a href="../page/onepage-movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
                             } else {
                                 echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
                             }
@@ -96,7 +96,7 @@ if (isset($_GET['add'])) {
                             <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .'</h2></a>';
 
                             if ($check) {
-                                echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                                echo '<a href="../page/onepage-movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
                             } else {
                                 echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
                             }
@@ -128,7 +128,7 @@ if (isset($_GET['add'])) {
                                 <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .'</h2></a>';
 
                                 if ($check) {
-                                    echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                                    echo '<a href="../page/onepage-movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
                                 } else {
                                     echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
                                 }
@@ -163,7 +163,7 @@ if (isset($_GET['add'])) {
                                 <a href="view-album.php?id=' . $list->id . '"><h2 class="text-xl">'. $list->name .' de ' . $list->pseudo . '</h2></a>';
 
                                 if ($check) {
-                                    echo '<a href="../page/onepage_movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
+                                    echo '<a href="../page/onepage-movie.php?id='. $_GET['id'] .'&add='. $list->id . '"><p class="text-center px-2 py-1 bg-orange-600 rounded-lg">Ajouter</p></a>';
                                 } else {
                                     echo '<p class="text-center px-2 py-1 bg-gray-700 rounded-lg">Déjà dans la liste</p>';
                                 }

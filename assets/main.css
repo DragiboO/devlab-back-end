@@ -714,10 +714,6 @@ video {
   width: 2rem;
 }
 
-.w-auto {
-  width: auto;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -740,6 +736,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
