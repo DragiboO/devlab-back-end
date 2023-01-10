@@ -541,4 +541,12 @@ class Connection
         }
     }
 
+    public function deleteTitle($album_id, $title_id)
+    {
+        $query = 'DELETE FROM album_title
+                  WHERE  album_id = '. $album_id .' AND title_id = '. $title_id;
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
+
 }

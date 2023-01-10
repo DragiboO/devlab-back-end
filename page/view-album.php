@@ -138,11 +138,17 @@ require "header.php";
             <a href="onepage-movie.php?id=' . $title->id . '"><img src="https://image.tmdb.org/t/p/original' . $data["poster_path"] .'" class="w-14"></a>
             <div class="flex flex-row gap-x-4 sm:gap-x-6 text-xs sm:text-sm lg:text-lg xl:gap-x-12 xl:text-lg">
                 <a href="onepage-movie.php?id=' . $title->id . '"><h2>' . $data["title"] . '</h2></a>
-                <h2>' . $data["runtime"].' min</h2>
-                <p>Retirer de l\'album</p>
+                <h2>' . $data["runtime"].' min</h2>';
+
+                if (isset($_SESSION['user_id'])) {
+                    if ($connection->authorizedUser($_SESSION['user_id'], $_GET['id'])) {
+                        echo '<a href="delete-title.php?title=' . $title->id . '&album=' . $_GET['id'] . '">Retirer de l\'album</a>';
+                    }
+                }
+
+            echo '
             </div>
         </div>
-        
         ';
         }
     }
