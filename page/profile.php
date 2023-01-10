@@ -132,7 +132,7 @@ if ($_POST) {
         }
     ?>
 
-    <hr class="mx-10 mb-2 text-sm xl:mx-40 xl:text-2xl">
+    <hr class="mx-10 mb-2 xl:mx-40 xl:mb-8">
     <div class="grid grid-cols-1 gap-y-6 px-10 mb-6 sm:grid-cols-2 sm:px-14 sm:gap-y-8 sm:gap-x-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:px-40 xl:mb-8 xl:gap-y-10">
         <?php
 
@@ -230,7 +230,7 @@ if ($_POST) {
         }
         ?>
     </h2>
-    <hr class="mx-10 mb-2 text-sm xl:mx-40 xl:text-2xl">
+    <hr class="mx-10 mb-2 xl:mx-40 xl:mb-8">
     <div class="grid grid-cols-1 gap-y-6 px-10 mb-6 sm:grid-cols-2 sm:px-14 sm:gap-y-8 sm:gap-x-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:px-40 xl:mb-8 xl:gap-y-10">
         <?php
 
